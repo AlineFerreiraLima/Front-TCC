@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Links Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">      
+    <!--Links Fontawesome-->
+    <script src="https://kit.fontawesome.com/682c6e0990.js" crossorigin="anonymous"></script>
+    <!--Links CSS-->
+    <link rel="stylesheet" href="../CSS/estrutura.css">
+    <link rel="stylesheet" href="../CSS/listagem_eventos.css">
+    <link rel="stylesheet" href="../CSS/view.css">
+    <link rel="stylesheet" href="../CSS/admin_criar_evento.css">
+    <title>Visualizar Eventos</title>
+  </head>
+  <body>
+    <header>
+        <nav class="navegacao navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <img id="logo" class="logo" src="../Imagens/logo.png" alt="Logotipo Faculdade Positivo">            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link disabled"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled"></a>
+                    </li>
+                    </ul>
+                    <form class="d-flex" role="search">                
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal"  href="./admin_listagem_eventos.html">Eventos</a>
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal"  href="./admin_conta.html">Minha Conta</a> 
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#CadastroOrg">Cadastrar Organizador</a>
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#">Logoff</a>                 
+                    </form>         
+                </div>                
+                
+                <a id="menu" class="menuIcon" href="#" role="button" data-bs-toggle="dropdown" 
+                aria-expanded="false"><i class="menu fa-solid fa-bars"></i></a>                          
+                <ul class="alinhaMenu dropdown-menu">
+                    <li><a class="dropdown-item" data-bs-toggle="modal"  href="./admin_listagem_eventos.html">Eventos</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" href="./admin_conta.html">Minha Conta</a></li>            
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#CadastroOrg" >Cadastrar Organizador</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#" >Logoff</a></li>
+                </ul>              
+            </div>
+        </nav>
+    </header>
+    <section>      
+        <div class="main titulo text-center">
+            <template>  
+              <!-- Aqui é onde será carregado o conteúdo recebido e populado pelo JS    -->
+            </template>
+      </div> 
+    </section>
+    <div id="modalRelatorios" class=" modal"> <!--Modal de relatorios-->
+        <div class="alturaModal modal-dialog" >
+            <div class="modal-content">
+            <div class="modal-header">                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <h5 class="modalTituloLogin modal-title">Escolha o tipo de relatório</h5>
+                <a href="./relatorio_inscricoes.html"  class="modalBotaoCadastro btn btn-secondary"><button type="button" 
+                     class="modalBotaoCadastro" data-bs-dismiss="modal">Inscrições</button></a>
+                <a href="./relatorio_checkin.html"  class="modalBotaoCadastro btn btn-secondary"><button type="button"  
+                    class="modalBotaoCadastro" data-bs-dismiss="modal">Check-in</button></a>
+            </div>           
+        </div>
+    </div> 
+    <div id="CadastroOrg" class=" modal"><!--Modal de cadastro-->
+        <div class="alturaModal modal-dialog" >
+            <div class="modal-content">
+            <div class="modal-header">                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <h5 class="modalTituloLogin modal-title">Cadastrar Organizador</h5>
+            <div class="modal-body">
+                <input class="modalInput" id="nome" type="text" placeholder="Nome:" required><br>
+                <input class="modalInput" id="cpf" type="text" placeholder="CPF:" required><br>
+                <input class="modalInput" id="e-mail" type="email" placeholder="E-mail:" required><br>
+                <input class="modalInput" id="senha" type="password" placeholder="Senha:" required><br>
+                <input class="modalInput" id="ConfirmaSenha" type="password" placeholder="Confirmar Senha:" required><br>
+                </div>  
+                <a class="modalBotaoCadastro btn btn-secondary" ><button class="modalBotaoCadastro" data-bs-dismiss="modal" >Cadastrar</button></a>
+            </div>           
+        </div>
+    </div>
+    <footer>
+        <P class="textoFooter" >@Eventos UP - 2022</P>    
+    </footer>
+    <!--Scripts Bootstrap e Fontawesome-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/682c6e0990.js" crossorigin="anonymous"></script>
+    <script>
+      //Recebe o conteudo do banco de dados atraves da URL
+      fetch('../JSON/eventos.json')
+      .then(response => {
+          if(!response.ok){
+              console.log("Ocorreu um erro " + response.status)
+          }
+          return response.json();
+      })
+      .then(json => {
+      //Acessando o Array do Objeto JSON vindo da URL, no laço forEach ele está fazendo a leitura dos dados contidos no Array e populando os cards. 
+          
+          json.eventoid.forEach((element, i) => {  
+              
+              const main = document.querySelector(".main");
+              console.log(main);
+          
+              //Criando o card
+          
+              const card = document.createElement('div');
+              card.classList = 'card';
+          
+              const eventoCard = `
+                  <img class="image card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" 
+                  alt="Capa Evento ADS" 
+                  src="${json.eventoid[i].imagem}" data-holder-rendered="true">
+                  <div class="textCard card-body">    
+                      <p>ID: ${json.eventoid[i].id}</p>    
+                      <p>Código Validação: ${json.eventoid[i].codValida}</p>                    
+                      <p>Organizador: ${json.eventoid[i].organizador}</p>                    
+                      <p>Palestrante: ${json.eventoid[i].palestrante}</p>                    
+                      <p>Curso: ${json.eventoid[i].curso}</p>                    
+                      <p>Data: ${json.eventoid[i].data}</p>                    
+                      <p>Horario: ${json.eventoid[i].horario}</p>    
+                      <p>Carga Horária: ${json.eventoid[i].cargaHoraria}</p>   
+                      <p>Carga Local: ${json.eventoid[i].local}</p>          
+                      <p>Carga Descrição: ${json.eventoid[i].descricao}</p>                 
+                  </div>  
+                  <div class="alinhamentoBotao">
+                      <a href="./admin_galeria.html"  class="botoesEvento btn btn-primary" >Galeria</a>  
+                      <button class="botoesEvento btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRelatorios" >Relatórios</button>     
+                      <a href="./admin_editar_evento.html"  class="botoesEvento btn btn-primary" >Editar</a>  
+                      <button class="botoesEvento btn btn-primary" >Excluir</button>   
+                  </div>
+              `;
+          
+              card.innerHTML += eventoCard;
+              main.appendChild(card)
+          });
+          
+      });
+    </script>
+  </body>
+</html>

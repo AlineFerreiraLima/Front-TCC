@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Links Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">    
+    <!--Fontawesome-->   
+    <script src="https://kit.fontawesome.com/682c6e0990.js" crossorigin="anonymous"></script>
+    <!--Estilização CSS-->
+    <link rel="stylesheet" href="../CSS/estrutura.css">
+    <link rel="stylesheet" href="../CSS/listagem_eventos.css">
+    <title>Divulgador de Eventos</title>
+  </head>
+  <body>
+    <header><!--Menu de navegação, modelo desktop-->
+        <nav class="navegacao navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <img id="logo" class="logo" src="../Imagens/logo.png" alt="Logotipo Faculdade Positivo">            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link disabled"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled"></a>
+                    </li>
+                    </ul>
+                    <form class="d-flex" role="search">                
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal"  href="./listagem_eventos.html">Eventos</a>
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginUser">Login</a>                
+                    </form>         
+                </div>               
+                <!--Menu de navegação mobile--> 
+                <a id="menu" class="menuIcon" href="#" role="button" data-bs-toggle="dropdown" 
+                aria-expanded="false"><i class="menu fa-solid fa-bars"></i></a>                          
+                <ul class="alinhaMenu dropdown-menu">
+                <li><a class="dropdown-item" data-bs-toggle="modal"  href="./listagem_eventos.html">Eventos</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginUser">Login</a></li>
+                </ul>                
+            </div>
+        </nav>
+    </header>
+    <section>
+        <form class="titulo tempoAlinhado d-flex" role="search"> <!--Campo de busca com filtragem de cursos-->
+            <input class="pesquisar form-control me-2" id="pesquisar" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+           
+        </form>
+        <br>
+        <div class="tempoAlinhado "><!--Filtragem de eventos por tempo-->
+            <button id="botaoPassado" type="button" class="tempo btn btn-secondary">Passado</button>
+            <button type="button" class="tempo btn btn-secondary">Hoje</button>
+            <button type="button" class="tempo btn btn-secondary">Futuro</button>
+            
+        </div>        
+        <div class="main text-center">
+            <h2 class="jumbotron-heading text-center">Eventos</h2>
+            <hr>
+              <template>    
+              </template>
+         </div>
+    </section>  
+    
+    <div id="loginUser" class=" modal">
+        <!--Modal de Login-->
+        <form class="alturaModal modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <h5 class="modalTituloLogin modal-title">Login</h5>
+                <div class="modal-body">
+                    <input class="modalInput" id="email_login" type="email" placeholder="E-mail:"><br>
+                    <input class="modalInput" id="senha_login" type="password" placeholder="Senha:"><br>
+                </div>
+                <a href="#" class="modalBotao btn btn-secondary"><button class="modalBotao"
+                        data-bs-dismiss="modal">Login</button></a>
+                <div class="linkModal">
+                    <a class="linkModal" data-bs-toggle="modal" data-bs-target="#EsqueceuSenha">Esqueceu seu Senha?</a>
+                </div>
+                <div class="linkModal">
+                    <p>Não possui conta? <strong><a class="linkModal" data-bs-toggle="modal"
+                                data-bs-target="#CadastrarUsuario">Cadastre-se</a></strong></p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="CadastrarUsuario" class=" modal">
+        <!--Modal de cadastro-->
+        <form class="alturaModal modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <h5 class="modalTituloLogin modal-title">Cadastre-se</h5>
+                <div class="modal-body">
+                    <span style="margin-left: 0.9rem;">Tipo de Cadastro</span>
+
+                    <select id="tipo_pessoa" style="height: 3rem; margin-top: 0.1rem; width: 95%; margin-left: 0.5rem;"
+                        class=" form-select" aria-label="Default select example" required>
+                        <option value="1" disabled>Organizador</option >
+                        <option value="2">Usuário</option>
+                    </select>
+                    <input class="modalInput" id="nome" type="text" placeholder="Nome:" required><br>
+                    <input class="modalInput" id="cpf" type="text" placeholder="CPF:" maxlength="11"
+                        oninput="mascara(this)" required><br>
+                    <input class="modalInput" id="email" type="email" placeholder="E-mail:" required><br>
+                    <input class="modalInput" id="senha" type="password" placeholder="Senha:" onkeyup="forca_senha()"
+                        required><br>
+                    <div id="erro_senha_forca" style="text-align: center;"></div>
+                    <input class="modalInput" id="confirmaSenha" type="password" placeholder="Confirmar Senha:"
+                        required><br>
+                </div>
+                <div class="termosModal">
+                    <input id="termos" required type="checkbox">
+                    <label for="termos">Ao me cadastrar, concordo com os <strong>termos de uso.</strong></label>
+                </div>
+                <button type="submit" class="modalBotaoCadastro btn btn-secondary">Cadastre-se</button>
+                <!-- <a href="./usuario_listagem_eventos.html" class="modalBotaoCadastro btn btn-secondary" ><button class="modalBotaoCadastro" data-bs-dismiss="modal" >Cadastre-se</button></a>
+            -->
+            </div>
+        </form>
+    </div>
+    <div id="EsqueceuSenha" class=" modal">
+        <!--Modal de recuperação de senha-->
+        <div class="alturaModal modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <h5 class="modalTituloLogin modal-title">Recuperar Senha</h5>
+                <div class="modal-body">
+                    <input class="modalInput" id="email_recuperar" type="email" placeholder="E-mail:" required><br>
+                </div>
+                <button type="button" class="modalBotaoCadastro btn btn-secondary"
+                    data-bs-dismiss="modal">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <P class="textoFooter" >@Eventos UP - 2022</P>    
+    </footer>
+    <!--Scripts Bootstrap e Fontawesome-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/682c6e0990.js" crossorigin="anonymous"></script>    
+    
+    <script src="../JavaScript/listagem-eventos.js"></script> 
+  </body>
+</html>

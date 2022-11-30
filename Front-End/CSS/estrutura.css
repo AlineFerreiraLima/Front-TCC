@@ -1,0 +1,286 @@
+/* Estilização do Body */
+
+body{
+    font-family: sans-serif !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+@media (max-width: 670px) {
+    body{
+        font-family: sans-serif !important;
+        font-size: 12px !important;
+        margin: 0px !important;
+    }
+}
+
+/* Estilização do Header */
+
+.fontColor{    
+    color: white !important;
+    text-align: right !important;
+    align-items: right !important;
+}
+.navegacao{
+    background-color: #15132C !important;
+    height: 5rem !important; 
+    width: 100% !important; 
+    position: fixed !important;
+    top: 0% !important;
+    z-index: 10 !important;
+}
+@media (max-width: 670px) {
+    .navegacao{
+        background-color: #15132C !important;
+        height: 4rem !important; 
+        width: 100% !important; 
+        position: fixed !important;
+        top: 0% !important;
+        z-index: 10 !important;
+    
+    }
+} 
+.alinhamento{
+    text-align: right !important;
+}
+.logo{
+    margin: 0px;
+    align-items: left !important;
+    text-align: left !important;
+
+    width: 12rem ;
+    height: 4rem ;
+}
+@media (max-width: 600px) {
+    .logo{
+        margin-top: 0px;
+        width: 7rem ;
+        height: 2.7rem ;
+    }
+}   
+.cursos{
+    background-color: #15132C !important;
+    border-color: #15132C !important;
+    color: white !important;
+}
+.pesquisar{
+    border-radius: 15px;  
+    width: 55vh !important;
+    height: 2rem !important;
+    text-align: center !important;
+}
+@media (max-width: 660px) {
+    .pesquisar{
+        border-radius: 15px;  
+        width: 30vh !important;
+        font-size: 12px !important;
+        text-align: center !important;
+    }
+} 
+.navMenu{
+    color: white;
+    border: none !important;
+    margin-left: 0.5rem !important;
+    text-decoration: none !important;
+    color: white !important;
+    background-color: #15132C !important;
+ }
+ @media (max-width: 660px) {
+    .navMenu{
+        color: white;
+        border: none !important;
+        margin-left: 0.5rem !important;
+        text-decoration: none !important;        
+        color: white !important;
+        background-color: #15132C !important;
+        width: 65px !important;
+        height: 30px !important;
+        font-size: 12px !important;
+     }
+}
+.botaoDrop{
+    color: white;   
+    width: 70px !important;
+    height: 30px !important;
+    font-size: 12px !important;
+}
+@media (max-width: 660px) {
+    .botaoDrop{
+        color: white;
+        width: 65px !important;
+        height: 30px !important;
+        font-size: 12px !important;
+    }
+}
+.menu{
+    color: white !important;
+}
+
+/* Estilização do Section */
+
+.titulo{
+    margin-top: 7%;
+}
+@media (max-width: 660px) {
+    .titulo{
+        margin-top: 18%;
+        font-size: 16px;
+    }
+    .alinhaMenu{
+        width: 100%;
+        text-align:  right;
+
+    }
+}
+@media (min-width: 670px) and (max-width: 1199px) {
+    .titulo{
+        margin-top: 15%;
+    }
+    .alinhaMenu{
+        width: 100%;
+        text-align:  right;
+
+    }
+}
+.tempo{
+    border: #15132C !important;
+    background-color: #15132C !important;
+    color: white !important;
+    margin-bottom: 2%;
+    width: 7rem !important;    
+    margin-top: 0.3rem !important;
+}
+@media (max-width: 660px) {
+    .tempo{
+       font-size: 12px;
+       margin-bottom: 4%;   
+    }
+}
+.tempoAlinhado{
+    justify-content: center !important;
+    justify-items: center !important;
+    align-items: center !important;    
+    text-align: center !important;
+}
+.alinhamentoMenu{
+    justify-content: right !important;
+    justify-items: right !important;
+    align-items: right !important;    
+    text-align: right !important;
+}
+
+/* Estilização dos Modal's */
+
+.alturaModal{
+    margin-top: 8% !important;
+    height: 60% !important;
+    
+}
+
+@media (max-width: 600px) {
+    .alturaModal{
+        margin-top: 20% !important;
+        height: 60% !important;
+    }   
+}
+.modalTituloLogin{
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 5%;
+}
+.modalInput{
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 95%;
+    height: 20px;
+    float: right;
+    margin-top: 7%;
+    outline: none;
+}
+.modalInput:hover{
+    border-bottom: 1px solid rgb(36, 130, 253);
+}
+.termosModal{
+    color: #15132C;
+    text-align: center;
+    text-decoration: none !important;
+    margin-top: 3%;
+    padding-bottom: 1rem !important;
+}
+
+.modalBotaoCadastro{
+    border: #15132C !important;
+    background-color: #15132C !important;
+    color: white !important;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-bottom: 2%;
+    width: 50% !important;    
+    margin-top: 3% !important;
+}
+.modalBotao{
+    border: #15132C !important;
+    background-color: #15132C !important;
+    color: white !important;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-bottom: 2%;
+    width: 50% !important;    
+    margin-top: 8% !important;
+}
+
+.linkModal{
+    color: #15132C;
+    text-align: center;
+    text-decoration: none !important;
+    margin-top: 8%;
+    padding-bottom: 2.5rem !important;
+}
+
+/* Estilização do Footer */
+footer{
+    background-color: #15132C !important;
+    color: white !important;
+    height: 3rem;
+    align-items: center;
+    font-size: 15px;
+    width: 100%; 
+    position: fixed;
+    bottom:  0%;
+    z-index: 10;
+}
+@media (max-width: 660px) {
+    footer{
+        background-color: #15132C !important;
+        color: white !important;
+        height: 2.5rem;
+        align-items: center;
+        font-size: 12px;
+        width: 100%; 
+        position: fixed;
+        bottom:  0%;
+        z-index: 10;
+    }
+}
+.textoFooter{
+    padding-top: 1rem;
+    text-align: center;
+}
+
+
+/* CSS do botão menu para mobile*/
+.menuIcon{
+    color: white !important;
+    margin-right: 2vh;
+}
+@media (min-width: 1000px) {
+    .menuIcon{
+        display: none !important;
+    }
+}
+
+.hide{
+    display: none !important;
+}

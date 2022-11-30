@@ -1,0 +1,10 @@
+.inserirImagem{
+    max-height: 16rem !important;
+    width: 100% !important;
+}
+@media (min-width: 320px) and (max-width: 420px) {
+    .inserirImagem{
+        max-height: 12rem !important;
+        width: 100% !important;
+    }
+}

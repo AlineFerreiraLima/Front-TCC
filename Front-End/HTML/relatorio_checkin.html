@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../CSS/relatorio.css">
+      <title>Relatório</title>
+  </head>
+  <body>
+      <h2>Relatório de Presença</h2>
+
+      <button id="relatorio" class="botaoPdf" onclick="window.print()">Imprimir</button>
+      <div>
+          <table id="customers">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>CPF</th>
+                  <th>E-mail</th>
+                  <th>Curso</th>
+                </tr>
+              </thead>
+              <tbody class="main">
+                  <template>
+                  </template> 
+              </tbody>
+          </table>
+      </div>
+    <script>
+      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js";
+      integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"; 
+      crossorigin="anonymous";
+
+      var button = document.getElementById("relatorio");
+
+      //Recebe o conteudo do banco de dados atraves da URL - Dados mockados em arquivo JSON
+
+      fetch('../JSON/relatorio.json')
+      .then(response => {
+          if(!response.ok){
+              console.log("Ocorreu um erro " + response.status)
+          }
+          return response.json();
+      })
+      .then(json => {
+      //Acessando o Array do Objeto JSON vindo da URL, no laço forEach ele está fazendo a leitura dos dados contidos no Array e populando os cards. 
+          json.relatorio.forEach((element, i) => {  
+
+              console.log(json)
+              const main = document.querySelector(".main");
+              console.log(main);
+          
+              //Criando o Tabela
+          
+              const table = document.createElement('tr');
+              table.classList = 'tr';
+          
+              const relatorio = `
+
+                  <tr>
+                  <td class="dadosTd">${json.relatorio[i].nome}</td>
+                  <td class="dadosTd">${json.relatorio[i].cpf}</td>
+                  <td class="dadosTd">${json.relatorio[i].email}</td>
+                  <td class="dadosTd">${json.relatorio[i].curso}</td>
+                  </tr>
+              `;
+          
+              table.innerHTML += relatorio;
+              main.appendChild(table)
+              
+          });
+          
+      });
+    </script>
+  </body>
+</html>

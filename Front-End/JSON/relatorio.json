@@ -1,0 +1,42 @@
+{
+    "relatorio":[
+
+        {     
+            
+            "nome" : "Tcharles",
+            "cpf" : "123.456.789-55",
+            "email" : "tn@gmail.com",
+            "curso" : "ADS"
+        },
+
+        {     
+            "nome" : "Aline",
+            "cpf" : "326.456.789-55",
+            "email" : "af@gmail.com",
+            "curso" : "ADS"
+        },
+    
+        {            
+            "nome" : "Lucas",
+            "cpf" : "258.456.789-55",
+            "email" : "lf@gmail.com",
+            "curso" : "ADS"
+        },
+    
+        {         
+            "nome" : "Leticia",
+            "cpf" : "895.456.789-55",
+            "email" : "le@gmail.com",
+            "curso" : "ADS"
+        },
+    
+        { 
+            "nome" : "Maria",
+            "cpf" : "453.456.789-55",
+            "email" : "maria@gmail.com",
+            "curso" : "ADS"
+        }
+    
+    
+    ]
+}

@@ -1,0 +1,119 @@
+
+.labelInput{
+    height: 30px !important;
+}
+.campoCurso{
+    font-size: 14px;
+}
+@media (min-width: 320px) and (max-width: 469px) {
+    .campoCurso{
+            width: 65px !important;
+            height: 30px !important;
+            font-size: 12px !important;
+    }
+}
+
+.camposInputAd{
+    border: none;
+    margin-left: 2px !important;
+    margin-right: 2px;
+    width: 88%;
+    height: 30px;
+    float: right;
+    font-size: 14px;
+}
+@media (min-width: 320px) and (max-width: 469px) {
+    .camposInputAd{
+        border: none;
+        margin-left: 2px !important;
+        margin-right: 2px;
+        width: 67%;
+        height: 30px;
+        float: right;
+    }
+}
+@media (min-width: 670px) and (max-width: 1199px) {
+    .camposInputAd{
+        border: none;
+        margin-left: 2px !important;
+        margin-right: 2px;
+        width: 85%;
+        height: 30px;
+        float: right;
+    }
+}
+.Botao{
+    border: #15132C !important;
+    background-color: #15132C !important;
+    color: white !important;
+    width: 12%;
+    margin-right: 0.5rem;
+
+}
+
+@media (max-width: 600px) {
+    .Botao{
+        border: #15132C !important;
+        background-color: #15132C !important;
+        color: white !important;
+        font-size: 12px !important; 
+        width: 30%;
+    }
+}
+.BotaoModal{
+    border: #15132C !important;
+    background-color: #15132C !important;
+    color: white !important;
+    width: 20%;
+    margin-right: 0.5rem;
+
+}
+
+@media (max-width: 600px) {
+    .BotaoModal{
+        border: #15132C !important;
+        background-color: #15132C !important;
+        color: white !important;
+        font-size: 12px !important; 
+        width: 30%;
+    }
+}
+.alinhamentoBotao{
+    display: flex !important;
+    justify-content: right !important;
+    justify-items: right !important;
+    align-items: right !important;    
+    text-align: right !important;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    padding-bottom: 1rem ;
+
+}
+@media (max-width: 600px) {
+    .alinhamentoBotao{
+        justify-content: right !important;
+        justify-items: right !important;
+        align-items: right !important;    
+        text-align: right !important;
+    }
+}
+
+.camposModal{
+    border: none;
+    margin-left: 2px !important;
+    margin-right: 2px;
+    width: 80%;
+    height: 30px;
+    float: right;
+    font-size: 14px;
+}
+
+.alterarSenha{
+    border: none;
+    margin-left: 2px !important;
+    margin-right: 2px;
+    width: 60%;
+    height: 30px;
+    float: right;
+    font-size: 14px;
+}

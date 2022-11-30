@@ -1,0 +1,160 @@
+.inserirImagem{
+    max-height: 16rem !important;
+    width: 100% !important;
+}
+@media (min-width: 320px) and (max-width: 420px) {
+    .inserirImagem{
+        max-height: 12rem !important;
+        width: 100% !important;
+    }
+}
+
+.espacoImg{
+    height: 18rem !important;
+    width: 100% !important;
+    background-color: rgb(170, 170, 170);
+}
+@media (min-width: 320px) and (max-width: 420px) {
+    .espacoImg{
+        height: 14rem !important;
+        width: 100% !important;
+        background-color: rgb(170, 170, 170);
+    }
+}
+.labelInput{
+    height: 30px !important;
+}
+.campoCurso{
+    font-size: 14px;
+}
+@media (min-width: 320px) and (max-width: 469px) {
+    .campoCurso{
+            width: 65px !important;
+            height: 30px !important;
+            font-size: 12px !important;
+    }
+}
+.campoTextArea{
+    border: none;
+    margin-left: 2px !important;
+    margin-right: 2px;
+    width: 88%;
+    float: right;
+    font-size: 14px;
+}
+@media (min-width: 320px) and (max-width: 469px) {
+    .campoTextArea{
+        border: none;
+        margin-left: 2px !important;
+        margin-right: 2px;
+        width: 67%;
+        float: right;
+        font-size: 12px;
+    }
+}
+@media (min-width: 670px) and (max-width: 1199px) {
+    .campoTextArea{
+        border: none;
+        margin-left: 2px !important;
+        margin-right: 2px;
+        width: 85%;
+        float: right;
+        font-size: 14px;
+    }
+}
+.camposInputAd{
+    border: none;
+    margin-left: 2px !important;
+    margin-right: 2px;
+    width: 86%;
+    height: 30px;
+    float: right;
+    font-size: 14px;
+}
+@media (min-width: 320px) and (max-width: 469px) {
+    .camposInputAd{
+        border: none;
+        margin-left: 2px !important;
+        margin-right: 2px;
+        width: 67%;
+        height: 30px;
+        float: right;
+    }
+    .alinhaMenu{
+        width: 100%;
+        text-align:  right;
+
+    }
+}
+@media (min-width: 670px) and (max-width: 1199px) {
+    .camposInputAd{
+        border: none;
+        margin-left: 2px !important;
+        margin-right: 2px;
+        width: 85%;
+        height: 30px;
+        float: right;
+    }
+}
+.alturaCard2{
+    height: 90% !important;
+}
+.novo{
+   padding-left: 2rem !important;
+}
+
+.BotaoInscricao{
+    border: #15132C !important;
+    background-color: #15132C !important;
+    color: white !important;
+    width: 20%;
+    margin-right: 0.5rem;
+
+}
+
+@media (max-width: 600px) {
+    .BotaoInscricao{
+        border: #15132C !important;
+        background-color: #15132C !important;
+        color: white !important;
+        font-size: 12px !important; 
+        width: 25%;
+    }
+}
+.botoesEvento{
+    border: #15132C !important;
+    background-color: #15132C !important;
+    color: white !important;
+    width: 20%;
+    margin-right: 0.5rem;
+}
+@media (max-width: 600px) {
+    .botoesEvento{
+        border: #15132C !important;
+        background-color: #15132C !important;
+        color: white !important;
+        font-size: 12px !important; 
+        width: 22.5%;
+        height: 1.7rem;
+    }
+}
+
+.alinhamentoBotao{
+    display: flex !important;
+    justify-content: right !important;
+    justify-items: right !important;
+    align-items: right !important;    
+    text-align: right !important;
+    margin-right: 1rem;
+    padding-bottom: 1rem ;
+
+}
+@media (max-width: 600px) {
+    .alinhamentoBotao{
+        justify-content: right !important;
+        justify-items: right !important;
+        align-items: right !important;    
+        text-align: right !important;
+        margin-right: 0.01rem;
+    }
+}

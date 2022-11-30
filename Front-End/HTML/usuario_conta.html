@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Links Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">       
+    <!--Link Fontawesome-->
+    <script src="https://kit.fontawesome.com/682c6e0990.js" crossorigin="anonymous"></script>
+   <!--Link Estilização CSS-->
+    <link rel="stylesheet" href="../CSS/estrutura.css">
+    <link rel="stylesheet" href="../CSS/conta.css">
+    <title>Minha Conta</title>
+  </head>
+  <body>
+    <header><!--Menu navegação-->
+        <nav class="navegacao navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <img id="logo" class="logo" src="../Imagens/logo.png" alt="Logotipo Faculdade Positivo">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link disabled"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled"></a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" href="./usuario_listagem_eventos.html">Eventos</a>
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" href="./usuario_conta.html">Minha Conta</a>
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#">Logoff</a>
+                    </form>
+                </div>
+                <a id="menu" class="menuIcon " href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false"><i class="menu fa-solid fa-bars"></i></a>
+                <ul class="alinhaMenu dropdown-menu">
+                <li><a class="dropdown-item" data-bs-toggle="modal" href="./usuario_listagem_eventos.html">Eventos</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" href="./usuario_conta.html">Minha Conta</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#" >Logoff</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section >
+        <div id="minhaConta" style="margin-top: 6.5%; background-color: white !important;" class="album py-5 bg-light">
+            <div class=" container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class=" card mb-4 box-shadow" style="height:15rem;">                           
+                            <form class="card-body">
+                                <label class="labelInput" for="nome">Nome : </label>
+                                <input class="camposInputAd" id="nome"  type="text" readonly="true"><br>     
+                                <label class="labelInput" for="cpf">CPF : </label>
+                                <input class="camposInputAd" id="cpf"  type="text" readonly="true"><br>                           
+                                <label class="labelInput" for="email">E-mail : </label>
+                                <input class="camposInputAd" id="email"  type="text" readonly="true"><br>
+                                <label class="labelInput" for="curso">Curso : </label>
+                                <select id="curso" class="camposInputAd form-select" aria-label="Default select example">
+                                    <option selected ></option>
+                                    <option value="1">ADS</option>
+                                    <option value="2">Direito</option>
+                                    <option value="3">Psicologia</option>
+                                  </select> <br>         
+                            </form>
+                            <div class="alinhamentoBotao">
+                                <bottom  class="Botao btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar" >Editar</bottom>        
+                                <bottom  class="Botao btn btn-primary" data-bs-toggle="modal" data-bs-target="#altSenha" >Alterar Senha</bottom>  
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div id="editar" class=" modal"> <!--Modal para editar dados do usuario-->
+            <div class="alturaModal modal-dialog" >
+                <div class="modal-content">
+                <div class="modal-header">                
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <h5 class="modalTituloLogin modal-title">Editar Dados</h5>
+                <div>
+                    <form class="card-body">
+                        <label  style="margin-left: 1.5rem;" class="labelInput" for="nome">Nome : </label>
+                        <input class="camposModal" id="nome"  type="text" required><br>     
+                        <label style="margin-left: 1.5rem;" class="labelInput" for="cpf">CPF : </label>
+                        <input class="camposModal" id="cpf"  type="text" readonly="true"><br>                           
+                        <label style="margin-left: 1.5rem;" class="labelInput" for="email">E-mail : </label>
+                        <input class="camposModal" id="email"  type="text" required><br>
+                        <label style="margin-left: 1.5rem;" class="labelInput" for="curso">Curso : </label>
+                        <select id="curso" class="camposModal form-select" aria-label="Default select example">
+                            <option selected ></option>
+                            <option value="1">ADS</option>
+                            <option value="2">Direito</option>
+                            <option value="3">Psicologia</option>
+                          </select> <br>         
+                    </form>
+                    <div class="alinhamentoBotao">
+                        <bottom  class="BotaoModal btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar" >Cancelar</bottom>        
+                        <bottom  class="BotaoModal btn btn-primary" >Salvar</bottom>  
+                    </div>
+                </div>  
+                </div>           
+            </div>
+        </div>
+        <div id="altSenha" class=" modal"><!--Modal para alteração de senha-->
+            <div class="alturaModal modal-dialog" >
+                <div class="modal-content">
+                <div class="modal-header">                
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <h5 class="modalTituloLogin modal-title">Alterar Senha: </h5>
+                <div>
+                    <form class="card-body">
+                        <label  style="margin-left: 1.5rem;" class="labelInput" for="senhaA">Senha Atual : </label>
+                        <input class="alterarSenha" id="senhaA"  type="password" required><br>  
+                        <label  style="margin-left: 1.5rem;" class="labelInput" for="newSenha">Nova Senha : </label>
+                        <input class="alterarSenha" id="newSenha"  type="password" required><br>  
+                        <label  style="margin-left: 1.5rem;" class="labelInput" for="confSenha">Confirmar Senha : </label>
+                        <input class="alterarSenha" id="confSenha"  type="password" required><br>  
+                    </form>
+                    <div class="alinhamentoBotao">
+                        <bottom  class="BotaoModal btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar" >Cancelar</bottom>        
+                        <bottom  class="BotaoModal btn btn-primary" >Salvar</bottom>  
+                    </div>
+                </div>  
+                </div>           
+            </div>
+        </div>
+    </section>     
+    <footer>
+        <P class="textoFooter" >@Eventos UP - 2022</P>
+    </footer>
+    <!--Scripts Bootstrap e Fontawesome-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/682c6e0990.js" crossorigin="anonymous"></script>
+  </body>
+</html>

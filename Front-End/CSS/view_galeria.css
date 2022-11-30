@@ -1,0 +1,69 @@
+
+.main{
+	width: 100%;
+	height: 100vh;
+	display: fixed  !important;
+  
+}
+
+.textCard{
+    align-items: left !important;
+    text-align: left !important;
+}
+
+.card{
+	width: 25%;
+	height: 12rem;
+	box-shadow: 0 0 10px 2px #aaa;
+	transition: 0.8s ease-out;
+    display: inline-block  !important;
+    margin: 1rem 1rem;
+ 
+}
+
+@media (max-width: 660px) {
+    .card{
+        width: 10.5rem;
+        height: 8rem;
+        background-color: var(--card-bg);
+        box-shadow: 0 0 10px 2px #aaa;
+        transition: 0.8s ease-out;
+        display: inline-block  !important;
+     
+    }
+
+}
+
+.card:hover{
+	box-shadow: 0 0 50px -5px var(--card-hover-shadow);
+	transition: 0.8s ease-in;
+}
+
+.card img{
+    height: 100%;
+}
+
+.info{
+	padding: 1rem;
+	display: grid !important;
+	grid-template-columns: 6fr 1fr;
+}
+
+.BotaoInscricao{
+    border: #15132C !important;
+    background-color: #15132C !important;
+    color: white !important;
+    width: 20%;
+    margin-right: 0.5rem;
+
+}
+
+@media (max-width: 600px) {
+    .BotaoInscricao{
+        border: #15132C !important;
+        background-color: #15132C !important;
+        color: white !important;
+        font-size: 12px !important; 
+        width: 25%;
+    }
+}
