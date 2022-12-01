@@ -47,57 +47,69 @@
         </nav>
     </header>
     <section>      
-        <div id="eventos" style="margin-top: 6.5%;" class="album py-5 bg-light">
+        <div  style="margin-top: 6.5%;" class="album py-5 bg-light">
             <div class=" container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class=" card mb-4 box-shadow" style="height:45rem;">
-                            <div class="espacoImg" >
-                                <div>
-                                    <input id="img-input" type="file" accept="image/png, image/jpeg"  name="imagem">
-                                </div>
-                                <div id="img-container">
-                                    <img class="inserirImagem" id="preview" src="">
-                                </div>
-                            </div>
-                            <form class="card-body">
-                                <label class="labelInput" for="id_evento">ID : </label>
-                                <input class="camposInputAd" id="id_evento"  type="text" readonly="true"><br>
-                                <label class="labelInput" for="codValida">Código Validação : </label>
-                                <input class="camposInputAd" id="codValida"  type="text" readonly="true"><br>
-                                <label class="labelInput" for="organizador">Organizador : </label>
-                                <input class="camposInputAd" id="organizador"  type="text" required><br>
-                                <label class="labelInput" for="curso">Curso : </label>
-                                <select id="curso" class="camposInputAd form-select" aria-label="Default select example">
-                                    <option selected ></option>
-                                    <option value="1">ADS</option>
-                                    <option value="2">Direito</option>
-                                    <option value="3">Psicologia</option>
-                                  </select> <br>
-                                <label class="labelInput" for="palestrante">Palestrante : </label>
-                                <input class="camposInputAd" id="palestrante"  type="text" required><br>
-                                <label class="labelInput" for="data">Data : </label>
-                                <input class="camposInputAd" id="data"  type="date" required><br>
-                                <label class="labelInput" for="horario">Horario : </label>
-                                <input class="camposInputAd" id="horario" type="time" required><br>
-                                <label class="labelInput" for="cargaHoraria">Carga Horaria : </label>
-                                <input class="camposInputAd" id="cargaHoraria" type="time" required><br>
-                                <label class="labelInput" for="local">Local : </label>
-                                <input class="camposInputAd" id="local"  type="text" required><br>
-                                <label class="labelInput" for="descricao">Descrição : </label>
-                                <textarea class="campoTextArea form-control" id="descricao" rows="3"></textarea><br>                             
-                                              
-                            </form>
-                            <div class="alinhamentoBotao">
-                                <bottom  class="BotaoInscricao btn btn-primary" >Cancelar</bottom>     
-                                <bottom method="POST" class="BotaoInscricao btn btn-primary" >Salvar</bottom>     
-                            </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <form id="editar-form" class=" card mb-4 box-shadow" style="height:45rem;"
+                        enctype="multipart/form-data">
+                        <div class="espacoImg">
+                           <div>
+                              <input name="imagem" id="imagem" type="file" accept="image/png, image/jpeg">
+                           </div>
+                           <div id="img-container">
+                              <img class="inserirImagem" id="preview" src="">
+                           </div>
                         </div>
-                    </div>
-                </div>
+                        <div class="card-body">
+                           <label class="labelInput" for="id_evento">ID do Evento : </label>
+                           <input name="id_evento" class="camposInputAd" id="id_evento" type="text" readonly><br>
+                           <label class="labelInput" for="codValida">Código Validação : </label>
+                           <input name="codValida" class="camposInputAd" id="codValida" type="text" required><br>
+                           <label class="labelInput" for="titulo">Título : </label>
+                           <input name="titulo" class="camposInputAd" id="titulo" type="text" required><br>
+                           <label class="labelInput" for="organizador">Organizador : </label>
+                           <input name="organizador" class="camposInputAd" id="organizador" type="text" required><br>
+                           <label class="labelInput" for="curso">Curso : </label>
+                           <select id="curso" name="curso" class="camposInputAd form-select"
+                              aria-label="Default select example">
+                              <option selected disabled></option>
+                              <option value="1">Análise e Desenvolvimento de Sistemas</option>
+                              <option value="2">Direito</option>
+                              <option value="3">Psicologia</option>
+                              <option value="4">Farmácia</option>
+                              <option value="5">Biomedicina</option>
+                              <option value="6">Odontologia</option>
+                              <option value="7">Medicina Veterinária</option>
+                              <option value="8">Púbico em Geral</option>
+                           </select> <br>
+                           <label class="labelInput" for="palestrante">Palestrante : </label>
+                           <input name="palestrante" class="camposInputAd" id="palestrante" type="text" required><br>
+                           <label class="labelInput" for="data">Data : </label>
+                           <input name="data" class="camposInputAd" id="data" type="date" required><br>
+                           <label class="labelInput" for="horario">Horario : </label>
+                           <input name="horario" class="camposInputAd" id="horario" type="time" required><br>
+                           <label class="labelInput" for="cargaHoraria">Carga Horaria : </label>
+                           <input name="cargaHoraria" class="camposInputAd" id="cargaHoraria" type="number" required><br>
+                           <label class="labelInput" for="local">Local : </label>
+                           <input name="local" class="camposInputAd" id="local" type="text" required><br>
+                           <label class="labelInput" for="capacidade_maxima">Capacidade Máxima : </label>
+                           <input class="camposInputAd" id="capacidade_maxima"  type="text" required><br>
+                           <label class="labelInput" for="descricao">Descrição : </label>
+                           <textarea name="descricao" class="campoTextArea form-control" id="descricao"
+                              placeholder="Limite de 400 caracteres" maxlength="400" rows="3"></textarea><br>
+                        </div>
+                        <div class="alinhamentoBotao">
+                           <input value="Cancelar" class="BotaoInscricao btn btn-primary">
+                           <input id="eventos" form="editar-form" type="submit"
+                              class="BotaoInscricao btn btn-primary" value="Salvar">
+                        </div>
+                     </form>
+                  </div>
+               </div>
             </div>
-        </div>  
-        <div id="novoEvento" class=" modal"  >
+         </div>
+         <div id="novoEvento" class=" modal"  >
             <div class="alturaModal modal-dialog" >
                 <div class="modal-content">
                 <div class="modal-header">                
@@ -128,19 +140,9 @@
         </div>
     </section>
     <footer>
-        <P class="textoFooter" >@Eventos UP - 2022</P>    
+        <P class="textoFooter" >@Divulgador de Eventos - 2022</P>    
     </footer>
-    <script>
-        function readImage() {
-            if (this.files && this.files[0]) {
-                var file = new FileReader();
-                file.onload = function(e) {
-                    document.getElementById("preview").src = e.target.result;
-                };       
-                file.readAsDataURL(this.files[0]);
-            }
-        }
-        document.getElementById("img-input").addEventListener("change", readImage, false);
-    </script>
+    <script src="../JavaScript/admin-editar-eventos.js"></script>
+    
   </body>
 </html>

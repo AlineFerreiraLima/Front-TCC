@@ -16,17 +16,17 @@ function listar_eventos(){
         return response.json();
     })
     .then(json => {
-    //Acessando o Array do Objeto JSON vindo da URL, no laço forEach ele está fazendo a leitura dos dados contidos no Array e populando os cards. 
+        //Acessando o Array do Objeto JSON vindo da URL, no laço forEach ele está fazendo a leitura dos dados contidos no Array e populando os cards. 
         json.forEach((element, i) => {  
 
             const main = document.querySelector(".main");
             console.log(main);
-        
+
             //Criando o card
-        
+
             const card = document.createElement('div');
             card.classList = 'card';
-        
+
             let id_param = json[i].id;
 
             let data_formatada = json[i].data;
@@ -46,9 +46,9 @@ function listar_eventos(){
                     <p>Curso: ${json[i].curso_fk}</p>                    
                     <p>Data: ${data_formatada}</p>                                              
                     <p>Horário: ${json[i].hora}</p>              
-                </div>  
+                </div>    
                 <div class="alinhamentoBotao">
-                    <a href="../HTML/view_evento.html" class="BotaoInscricao btn btn-primary" id="${id_param}" >Visualizar</a>     
+                    <a href="./admin_view_eventos.html"" style="width: 22%;" class="BotaoInscricao btn btn-primary" id="${id_param}" >Visualizar</a>     
                 </div>
             `;
         
@@ -58,6 +58,7 @@ function listar_eventos(){
         
     });
 }
+
 listar_eventos();
 
 const main = document.querySelector(".main");
@@ -68,130 +69,6 @@ main.addEventListener("click", (e) => {
     }
     localStorage.setItem("id", id)
 })
-
-
-//Função para adicinar mascara para o campo CPF
-function mascara(i) {
-
-    var v = i.value;
-
-    if (isNaN(v[v.length - 1])) { // impede entrar outro caractere que não seja número
-        i.value = v.substring(0, v.length - 1);
-        return;
-    }
-
-    i.setAttribute("maxlength", "14");
-    if (v.length == 3 || v.length == 7) i.value += ".";
-    if (v.length == 11) i.value += "-";
-}
-//Acessando os campos input, pegando os valores referente aos id e salvando em variaveis
-const Isenha = document.getElementById("senha");
-const IconfirmaSenha = document.getElementById("confirmaSenha");
-
-// Função para validar se com campos de senha e confirma senha são iguais
-function validacao(item) {
-    item.setCustomValidity('');
-    item.checkValidity();
-
-    if (item == IconfirmaSenha) {
-        if (item.value === Isenha.value) {
-            item.setCustomValidity('')
-        } else {
-            item.setCustomValidity("As senhas digitadas não são iguais");
-        };
-
-    }
-}
-
-Isenha.addEventListener('input', function () { validacao(senha) });
-IconfirmaSenha.addEventListener('input', function () { validacao(confirmaSenha) });
-
-//Função para validar a força da senha digitada pelo usuario
-function forca_senha() {
-    var senha_real_time = document.getElementById('senha').value
-    var forca = 0;
-    if ((senha_real_time.length >= 4) && (senha_real_time.length <= 7)) {
-        forca = forca + 10;
-    } else if (senha_real_time.length > 7) {
-        forca = forca + 25;
-    }
-
-    if ((senha_real_time.length >= 5) && (senha_real_time.match(/[a-z]+/))) {
-        forca = forca + 10;
-    }
-
-    if ((senha_real_time.length >= 6) && (senha_real_time.match(/[A-Z]+/))) {
-        forca = forca + 20;
-    }
-    if ((senha_real_time.length >= 7) && (senha_real_time.match(/[@#$%&;*]+/))) {
-        forca = forca + 25;
-    }
-
-    mostrar_forca(forca);
-}
-function mostrar_forca(forca) {
-    if (forca < 30) {
-        document.getElementById("erro_senha_forca").innerHTML = "<span style='color: #FF0000'>Fraca</span>";
-    } else if ((forca >= 30) && (forca < 50)) {
-        document.getElementById("erro_senha_forca").innerHTML = "<span style='color: #FFD700'>Média</span>";
-    } else if ((forca >= 50) && (forca < 70)) {
-        document.getElementById("erro_senha_forca").innerHTML = "<span style='color: #7FFF00'>Forte</span>";
-    }
-}
-
-//Acessando os campos input, pegando os valores referente aos id e salvando em variaveis
-const formularioCadastro = document.getElementById("CadastrarUsuario");
-const formularioLogin = document.getElementById("loginUser");
-const formularioEsqueceuSenha = document.getElementById("EsqueceuSenha");
-const Inome = document.getElementById("nome");
-const Icpf = document.getElementById("cpf");
-const Iemail = document.getElementById("email");
-const Itipo_pessoa = document.getElementById("tipo_pessoa");
-const Iemail_login = document.getElementById("email_login");
-const Isenha_login = document.getElementById("senha_login");
-const Iemail_recuperar = document.getElementById("email_recuperar");
-
-
-
-//Função para cadastrar um novo usuario na base de dados
-function cadastrar() {
-    fetch("http://localhost:8081/pessoas/criar",
-        {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify({
-                tipo_fk: Itipo_pessoa.value,
-                nome: Inome.value,
-                cpf: Icpf.value,
-                email: Iemail.value,
-                senha: Isenha.value
-            })
-        })
-        .then(function (res) { console.log(res) })
-        .catch(function (res) { console.log(res) })
-
-};
-
-function limparCadastro() {
-    Itipo_pessoa.value = "";
-    Inome.value = "";
-    Icpf.value = "";
-    Iemail.value = "";
-    Isenha.value = "";
-    IconfirmaSenha.value = "";
-}
-
-
-formularioCadastro.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    cadastrar();
-    limparCadastro();
-});
-
 
 let filter = document.getElementById("pesquisar");
 filter.addEventListener("keyup", function(){
@@ -313,3 +190,126 @@ botaoFuturo.addEventListener("click", function(){
 
 
 });
+
+
+//Função para adicinar mascara para o campo CPF
+function mascara(i) {
+
+    var v = i.value;
+
+    if (isNaN(v[v.length - 1])) { // impede entrar outro caractere que não seja número
+        i.value = v.substring(0, v.length - 1);
+        return;
+    }
+
+    i.setAttribute("maxlength", "14");
+    if (v.length == 3 || v.length == 7) i.value += ".";
+    if (v.length == 11) i.value += "-";
+}
+//Acessando os campos input, pegando os valores referente aos id e salvando em variaveis
+const Isenha = document.getElementById("senha");
+const IconfirmaSenha = document.getElementById("confirmaSenha");
+
+// Função para validar se com campos de senha e confirma senha são iguais
+function validacao(item) {
+    item.setCustomValidity('');
+    item.checkValidity();
+
+    if (item == IconfirmaSenha) {
+        if (item.value === Isenha.value) {
+            item.setCustomValidity('')
+        } else {
+            item.setCustomValidity("As senhas digitadas não são iguais");
+        };
+
+    }
+}
+
+Isenha.addEventListener('input', function () { validacao(senha) });
+
+//Função para validar a força da senha digitada pelo usuario
+function forca_senha() {
+    var senha_real_time = document.getElementById('senha').value
+    var forca = 0;
+    if ((senha_real_time.length >= 4) && (senha_real_time.length <= 7)) {
+        forca = forca + 10;
+    } else if (senha_real_time.length > 7) {
+        forca = forca + 25;
+    }
+
+    if ((senha_real_time.length >= 5) && (senha_real_time.match(/[a-z]+/))) {
+        forca = forca + 10;
+    }
+
+    if ((senha_real_time.length >= 6) && (senha_real_time.match(/[A-Z]+/))) {
+        forca = forca + 20;
+    }
+    if ((senha_real_time.length >= 7) && (senha_real_time.match(/[@#$%&;*]+/))) {
+        forca = forca + 25;
+    }
+
+    mostrar_forca(forca);
+}
+function mostrar_forca(forca) {
+    if (forca < 30) {
+        document.getElementById("erro_senha_forca").innerHTML = "<span style='color: #FF0000'>Fraca</span>";
+    } else if ((forca >= 30) && (forca < 50)) {
+        document.getElementById("erro_senha_forca").innerHTML = "<span style='color: #FFD700'>Média</span>";
+    } else if ((forca >= 50) && (forca < 70)) {
+        document.getElementById("erro_senha_forca").innerHTML = "<span style='color: #7FFF00'>Forte</span>";
+    }
+}
+
+//Acessando os campos input, pegando os valores referente aos id e salvando em variaveis
+const formularioCadastro = document.getElementById("CadastroOrg");
+const formularioLogin = document.getElementById("loginUser");
+const formularioEsqueceuSenha = document.getElementById("EsqueceuSenha");
+const Inome = document.getElementById("nome");
+const Icpf = document.getElementById("cpf");
+const Iemail = document.getElementById("email");
+const Itipo_pessoa = document.getElementById("tipo_pessoa");
+const Iemail_login = document.getElementById("email_login");
+const Isenha_login = document.getElementById("senha_login");
+const Iemail_recuperar = document.getElementById("email_recuperar");
+
+
+
+//Função para cadastrar um novo usuario na base de dados
+function cadastrar() {
+    fetch("http://localhost:8081/pessoas/criar",
+        {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({
+                tipo_fk: Itipo_pessoa.value,
+                nome: Inome.value,
+                cpf: Icpf.value,
+                email: Iemail.value,
+                senha: Isenha.value
+            })
+        })
+        .then(function (res) { console.log(res) })
+        .catch(function (res) { console.log(res) })
+
+};
+
+function limparCadastro() {
+    Itipo_pessoa.value = "";
+    Inome.value = "";
+    Icpf.value = "";
+    Iemail.value = "";
+    Isenha.value = "";
+    IconfirmaSenha.value = "";
+}
+
+
+formularioCadastro.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    cadastrar();
+    limparCadastro();
+});
+

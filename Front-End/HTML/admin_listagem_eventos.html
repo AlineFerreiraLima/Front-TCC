@@ -47,17 +47,16 @@
     </header>
     <section>
         <form class="titulo tempoAlinhado d-flex" role="search">
-            <input class="pesquisar form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-            <div class="tempoAlinhado"> 
-                            
+            <input class="pesquisar form-control me-2" id="pesquisar" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+            <div class="tempoAlinhado">                             
                 <a  href="./admin_criar_evento.html" class="BotaoInscricao botaoDrop btn btn-primary" data-bs-toggle="modal">Novo</a> 
             </div>
         </form>
         <br>
         <div class="tempoAlinhado ">
-            <button type="button" class="tempo btn btn-secondary">Passado</button>
-            <button type="button" class="tempo btn btn-secondary">Hoje</button>
-            <button type="button" class="tempo btn btn-secondary">Futuro</button>
+            <button id="botao_passado" type="button" class="tempo btn btn-secondary">Passado</button>
+            <button id="botao_hoje" type="button" class="tempo btn btn-secondary">Hoje</button>
+            <button id="botao_futuro" type="button" class="tempo btn btn-secondary">Futuro</button>
         </div>       
         <div class="main text-center">
             <h2 class="jumbotron-heading text-center">Eventos</h2>
@@ -74,11 +73,19 @@
                 </div>
                 <h5 class="modalTituloLogin modal-title">Cadastrar Organizador</h5>
                 <div class="modal-body">
+                    <span style="margin-left: 0.9rem;">Tipo de Cadastro</span>
+
+                    <select id="tipo_pessoa" style="height: 3rem; margin-top: 0.1rem; width: 95%; margin-left: 0.5rem;"
+                        class=" form-select" aria-label="Default select example" required>
+                        <option value="1" >Organizador</option >
+                        <option value="2"disabled >Usuário</option>
+                    </select>
                     <input class="modalInput" id="nome" type="text" placeholder="Nome:" required><br>
-                    <input class="modalInput" id="cpf" type="text" placeholder="CPF:" required><br>
+                    <input class="modalInput" id="cpf" type="text" placeholder="CPF:" maxlength="11"
+                    oninput="mascara(this)" required><br>
                     <input class="modalInput" id="e-mail" type="email" placeholder="E-mail:" required><br>
-                    <input class="modalInput" id="senha" type="password" placeholder="Senha:" required><br>
-                    <input class="modalInput" id="ConfirmaSenha" type="password" placeholder="Confirmar Senha:" required><br>
+                    <input class="modalInput" id="senha" type="password" placeholder="Senha:" onkeyup="forca_senha()"
+                    required><br>
                     </div>  
                     <a class="modalBotaoCadastro btn btn-secondary" ><button class="modalBotaoCadastro" data-bs-dismiss="modal" >Cadastrar</button></a>
                 </div>           
@@ -86,52 +93,10 @@
         </div>
     </section>
     <footer>
-        <P class="textoFooter" >@Eventos UP - 2022</P>    
+        <P class="textoFooter" >@Divulgador de Eventos - 2022</P>    
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/682c6e0990.js" crossorigin="anonymous"></script>
-    <script>
-        //Recebe o conteudo do banco de dados atraves da URL
-        fetch('../JSON/eventos.json')
-        .then(response => {
-            if(!response.ok){
-                console.log("Ocorreu um erro " + response.status)
-            }
-            return response.json();
-        })
-        .then(json => {
-        //Acessando o Array do Objeto JSON vindo da URL, no laço forEach ele está fazendo a leitura dos dados contidos no Array e populando os cards. 
-            json.eventos.forEach((element, i) => {  
-
-                const main = document.querySelector(".main");
-                console.log(main);
-            
-                //Criando o card
-            
-                const card = document.createElement('div');
-                card.classList = 'card';
-            
-                const eventoCard = `
-                    <img class="capaEvento card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" 
-                    alt="Capa Evento ADS" 
-                    src="${json.eventos[i].imagem}" data-holder-rendered="true">
-                    <div class="textCard card-body">                            
-                        <p>Organizador: ${json.eventos[i].organizador}</p>                    
-                        <p>Palestrante: ${json.eventos[i].palestrante}</p>                    
-                        <p>Curso: ${json.eventos[i].curso}</p>                    
-                        <p>Data: ${json.eventos[i].data}</p>                    
-                        <p>Horario: ${json.eventos[i].horario}</p>          
-                    </div>  
-                    <div class="alinhamentoBotao">
-                        <a href="./admin_view_eventos.html"" style="width: 22%;" class="BotaoInscricao btn btn-primary" >Visualizar</a>     
-                    </div>
-                `;
-            
-                card.innerHTML += eventoCard;
-                main.appendChild(card)
-            });
-            
-        });
-    </script>
+    <script src="../JavaScript/admin-listagem-eventos.js"></script>
   </body>
 </html>
