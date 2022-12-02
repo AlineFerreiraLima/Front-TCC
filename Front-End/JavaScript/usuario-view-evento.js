@@ -50,7 +50,8 @@ fetch(`http://localhost:8081/eventos/buscar/${id}`,
                          <p>Capacidade Máxima: ${json.capacidade_maxima}</p>                      
                          <p>Descrição: ${json.descricao}</p>                 
                      </div>  
-            <div class="alinhamentoBotao">
+            <div class="alinhamentoBotao">            
+                <bottom  class="BotaoInscricao btn btn-primary" data-bs-toggle="modal" data-bs-target="#inscrito"  >Inscreva-se</bottom>   
                 <bottom  class="BotaoInscricao btn btn-primary" data-bs-toggle="modal" data-bs-target="#check-in"  >Check-in</bottom>     
                 <a href="./usuario_galeria.html" class="BotaoInscricao btn btn-primary" ><bottom class="BotaoInscricao" >Galeria</bottom></a>
             </div>

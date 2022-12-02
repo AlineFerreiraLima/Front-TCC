@@ -51,7 +51,7 @@ fetch(`http://localhost:8081/eventos/buscar/${id}`,
                          <p>Descrição: ${json.descricao}</p>                 
                      </div>  
                      <div class="alinhamentoBotao">  
-                         <bottom method="POST" class="BotaoInscricao btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginUser" >Inscreva-se</bottom>     
+                         <bottom type="submit" class="BotaoInscricao btn btn-primary" data-bs-toggle="modal" data-target="#myModal" data-backdrop="static" data-bs-target="#loginUser" >Inscreva-se</bottom>     
                      </div>
                  `;
 

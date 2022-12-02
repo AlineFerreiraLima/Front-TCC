@@ -29,7 +29,7 @@
                     </ul>
                     <form class="d-flex" role="search">                
                         <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal"  href="./listagem_eventos.html">Eventos</a>
-                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginUser">Login</a>                
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-target="#myModal" data-backdrop="static" data-bs-target="#loginUser" >Login</a>                
                     </form>         
                 </div>               
                 <!--Menu de navegação mobile--> 
@@ -37,7 +37,7 @@
                 aria-expanded="false"><i class="menu fa-solid fa-bars"></i></a>                          
                 <ul class="alinhaMenu dropdown-menu">
                 <li><a class="dropdown-item" data-bs-toggle="modal"  href="./listagem_eventos.html">Eventos</a></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginUser">Login</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal"  data-target="#myModal" data-backdrop="static" data-bs-target="#loginUser">Login</a></li>
                 </ul>                
             </div>
         </nav>
@@ -62,7 +62,7 @@
          </div>
     </section>  
     
-    <div id="loginUser" class=" modal">
+    <div id="loginUser" class=" modal fade">
         <!--Modal de Login-->
         <form class="alturaModal modal-dialog">
             <div class="modal-content">
@@ -70,11 +70,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <h5 class="modalTituloLogin modal-title">Login</h5>
+                <div id="msgErro"></div>
                 <div class="modal-body">
-                    <input class="modalInput" id="email_login" type="email" placeholder="E-mail:"><br>
-                    <input class="modalInput" id="senha_login" type="password" placeholder="Senha:"><br>
+                    <input class="modalInput" id="email_login" type="email" placeholder="E-mail:" required><br>
+                    <input class="modalInput" id="senha_login" type="password" placeholder="Senha:" required><br>
                 </div>
-                <a href="./usuario_listagem_eventos.html" class="modalBotao btn btn-secondary">Login</a>
+                <button type="submit" class="modalBotao btn btn-primary">Login</button>
                 <div class="linkModal">
                     <a class="linkModal" data-bs-toggle="modal" data-bs-target="#EsqueceuSenha">Esqueceu seu Senha?</a>
                 </div>
@@ -146,5 +147,6 @@
     <script src="https://kit.fontawesome.com/682c6e0990.js" crossorigin="anonymous"></script>    
     
     <script src="../JavaScript/listagem-eventos.js"></script> 
+    <script src="../JavaScript/login.js"></script>
   </body>
 </html>

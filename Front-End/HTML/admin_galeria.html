@@ -35,7 +35,7 @@
                             <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" href="./admin_listagem_eventos.html">Eventos</a>
                             <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" href="./admin_conta.html">Minha Conta</a>
                             <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#CadastroOrg">Cadastrar Organizador</a> 
-                            <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#">Logoff</a>                 
+                            <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" onclick="logoff()">Logoff</a>                 
                         </form>         
                     </div>   
                     <!--Menu Mobile, só aparece quando usando na versão mobile (a navegação normal some e aparece o dropdown na versão mobile)-->             
@@ -45,7 +45,7 @@
                     <li><a class="dropdown-item" data-bs-toggle="modal" href="./admin_listagem_eventos.html" >Eventos</a></li>
                     <li><a class="dropdown-item" data-bs-toggle="modal" href="./admin_conta.html">Minha Conta</a></li>            
                     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#CadastroOrg" >Cadastrar Organizador</a></li>
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#" >Logoff</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" onclick="logoff()">Logoff</a></li>
                     </ul>                
                 </div>
             </nav>
@@ -103,6 +103,7 @@
         <!--Scripts do Bootstrap-->
         <script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../JavaScript/logoff.js"></script>
         <script>
             //Recebe o conteudo do banco de dados atraves da URL - Valores Mockados em arquivo JSON
             fetch('../JSON/galeria.json')

@@ -57,14 +57,14 @@ function evento() {
          Icarga_horaria.value = responseJSON.carga_horaria;
          Ilocal.value = responseJSON.local_evento;
          Idescricao.value = responseJSON.descricao;
-         Icapacidade_maxima.value = responseJSON.capaxidade_maxima;
+         Icapacidade_maxima.value = responseJSON.capacidade_maxima;
       })
 
 };
 evento();
 
 function editar(){
-    fetch(`http://localhost:8081/eventos/editar`,
+    fetch("http://localhost:8081/eventos/editar",
         {
             headers: {
                 'Accept': 'application/json',
@@ -72,6 +72,7 @@ function editar(){
             },
             method: "PUT",
             body: JSON.stringify({
+                id: Iid_evento.value,
                 nome: Ititulo.value,
                 palestrante: Ipalestrante.value,
                 organizador: Iorganizador.value,

@@ -31,7 +31,7 @@
                         <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" href="./admin_listagem_eventos.html">Eventos</a>
                         <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" href="./admin_conta.html">Minha Conta</a>
                         <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#CadastroOrg">Cadastrar Organizador</a>
-                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#">Logoff</a>
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" onclick="logoff()">Logoff</a>
                     </form>
                 </div>
                 <!--Menu de navegação para mobile-->
@@ -41,7 +41,7 @@
                 <li><a class="dropdown-item" data-bs-toggle="modal"  href="./admin_listagem_eventos.html">Eventos</a></li>
                 <li><a class="dropdown-item" data-bs-toggle="modal" href="./admin_conta.html" >Minha Conta</a></li>                
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#CadastroOrg" >Cadastrar Organizador</a></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#" >Logoff</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" onclick="logoff()">Logoff</a></li>
                 </ul>
             </div>
         </nav>
@@ -154,6 +154,7 @@
         <P class="textoFooter" >@Divulgador de Eventos- 2022</P>
     </footer>
     <!--Script js do Bootstrap-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>  
+    <script src="../JavaScript/logoff.js"></script>  
   </body>
 </html>

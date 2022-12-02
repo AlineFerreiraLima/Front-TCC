@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Links do Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <!--Link Fontawesome-->
+    <script src="https://kit.fontawesome.com/682c6e0990.js" crossorigin="anonymous"></script>
+    <!--Links CSS-->
+    <link rel="stylesheet" href="../CSS/estrutura.css">
+    <link rel="stylesheet" href="../CSS/auth-nao-autorizado.css">
+    <title>Acesso negado</title>
+</head>
+
+<body>
+    <header>
+        <!--Menu de navegação da página-->
+        <nav class="navegacao navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <img id="logo" class="logo" src="../Imagens/logo.png" alt="Logotipo Faculdade Positivo">
+            </div>
+        </nav>
+    </header>
+    <div class="container-geral">
+        <div class="erro-http">403 - ACESSO NEGADO</div>
+        <div class="texto-superior">
+            Oops, você não tem permissão para acessar essa página.
+        </div>
+        <div class="texto-central">
+            As credenciais de login não foram encontradas, clique no botão abaixo para retornar à página inicial.
+        </div>
+        <div>
+            <a class="botao" href="./listagem_eventos.html">Página Inicial</a>
+        </div>
+    </div>
+    <!--Script js do Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

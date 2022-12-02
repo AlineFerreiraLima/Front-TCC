@@ -55,7 +55,6 @@ fetch(`http://localhost:8081/eventos/buscar/${id}`,
                 <a href="./admin_galeria.html"  class="botoesEvento btn btn-primary" >Galeria</a>  
                 <button class="botoesEvento btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRelatorios" >Relatórios</button>     
                 <a href="./admin_editar_evento.html"  class="botoesEvento btn btn-primary" id="${id}" >Editar</a>  
-                <button class="botoesEvento btn btn-primary" >Excluir</button>   
             </div>
         `;
     

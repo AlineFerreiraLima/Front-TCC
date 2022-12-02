@@ -131,3 +131,12 @@
 	display: grid !important;
 	grid-template-columns: 6fr 1fr;
 }
+
+#msgErro{
+    text-align: center;
+    color: #ff0000;
+    background-color: #ffbbbb;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+}

@@ -32,7 +32,7 @@
                         <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#">Eventos</a>
                         <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#">Minha Conta</a> 
                         <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#CadastroOrg">Cadastrar Organizador</a>
-                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#">Logoff</a>                 
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" onclick="logoff()">Logoff</a>                 
                     </form>         
                 </div>                
                 <a id="menu" class="menuIcon" href="#" role="button" data-bs-toggle="dropdown" 
@@ -41,7 +41,7 @@
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#" >Eventos</a></li>
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#" >Minha Conta</a></li>            
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#CadastroOrg" >Cadastrar Organizador</a></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#" >Logoff</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" onclick="logoff()">Logoff</a></li>
                 </ul>                
             </div>
         </nav>
@@ -51,8 +51,7 @@
             <div class=" container">
                <div class="row">
                   <div class="col-md-12">
-                     <form id="editar-form" class=" card mb-4 box-shadow" style="height:45rem;"
-                        enctype="multipart/form-data">
+                     <form class=" card mb-4 box-shadow" style="height:45rem;" >
                         <div class="espacoImg">
                            <div>
                               <input name="imagem" id="imagem" type="file" accept="image/png, image/jpeg">
@@ -63,7 +62,7 @@
                         </div>
                         <div class="card-body">
                            <label class="labelInput" for="id_evento">ID do Evento : </label>
-                           <input name="id_evento" class="camposInputAd" id="id_evento" type="text" readonly><br>
+                           <input name="id_evento" class="camposInputAd" id="id_evento" type="text" readonly required><br>
                            <label class="labelInput" for="codValida">Código Validação : </label>
                            <input name="codValida" class="camposInputAd" id="codValida" type="text" required><br>
                            <label class="labelInput" for="titulo">Título : </label>
@@ -81,7 +80,8 @@
                               <option value="5">Biomedicina</option>
                               <option value="6">Odontologia</option>
                               <option value="7">Medicina Veterinária</option>
-                              <option value="8">Púbico em Geral</option>
+                              <option value="8">Externo</option>
+                              <option value="8">Geral</option>
                            </select> <br>
                            <label class="labelInput" for="palestrante">Palestrante : </label>
                            <input name="palestrante" class="camposInputAd" id="palestrante" type="text" required><br>
@@ -101,8 +101,7 @@
                         </div>
                         <div class="alinhamentoBotao">
                            <input value="Cancelar" class="BotaoInscricao btn btn-primary">
-                           <input id="eventos" form="editar-form" type="submit"
-                              class="BotaoInscricao btn btn-primary" value="Salvar">
+                           <input id="eventos" type="submit" class="BotaoInscricao btn btn-primary">
                         </div>
                      </form>
                   </div>
@@ -143,6 +142,7 @@
         <P class="textoFooter" >@Divulgador de Eventos - 2022</P>    
     </footer>
     <script src="../JavaScript/admin-editar-eventos.js"></script>
+    <script src="../JavaScript/logoff.js"></script>
     
   </body>
 </html>

@@ -32,7 +32,7 @@
                         <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" href="./admin_listagem_eventos.html">Eventos</a>
                         <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" href="./admin_conta.html">Minha Conta</a> 
                         <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#CadastroOrg">Cadastrar Organizador</a>
-                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#">Logoff</a>                 
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" onclick="logoff()">Logoff</a>                 
                     </form>         
                 </div>                
                 <a id="menu" class="menuIcon" href="#" role="button" data-bs-toggle="dropdown" 
@@ -41,7 +41,7 @@
                 <li><a class="dropdown-item" data-bs-toggle="modal" href="./admin_listagem_eventos.html">Eventos</a></li>
                 <li><a class="dropdown-item" data-bs-toggle="modal" href="./admin_conta.html">Minha Conta</a></li>            
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#CadastroOrg" >Cadastrar Organizador</a></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#" >Logoff</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" onclick="logoff()" >Logoff</a></li>
                 </ul>                
             </div>
         </nav>
@@ -153,5 +153,6 @@
         document.getElementById("img-input").addEventListener("change", readImage, false);
     </script>
     <script src="../JavaScript/admin-cadastrar-eventos.js"></script>
+    <script src="../JavaScript/logoff.js"></script>
   </body>
 </html>
