@@ -37,8 +37,8 @@ fetch(`http://localhost:8081/eventos/buscar/${id}`,
          data_formatada = `${data_formatada[2]}/${data_formatada[1]}/${data_formatada[0]}`
 
          const eventoCard = `
-                     <img class="image card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" 
-                     alt="Capa Evento ADS" 
+                     <img class="espacoImg image card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" 
+                     alt="Capa Evento" 
                      src="${json.file_name}" data-holder-rendered="true">
                      <div class="textCard card-body"> 
                          <p>Título: ${json.nome}</p>                        
@@ -51,12 +51,12 @@ fetch(`http://localhost:8081/eventos/buscar/${id}`,
                          <p>Capacidade Máxima: ${json.capacidade_maxima}</p>                      
                          <p>Descrição: ${json.descricao}</p>                 
                      </div>  
-            <div class="alinhamentoBotao">
-                <a href="./admin_galeria.html"  class="botoesEvento btn btn-primary" >Galeria</a>  
-                <button class="botoesEvento btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRelatorios" >Relatórios</button>     
-                <a href="./admin_editar_evento.html"  class="botoesEvento btn btn-primary" id="${id}" >Editar</a>  
-            </div>
-        `;
+                    <div class="alinhamentoBotao">
+                        <a href="./admin_galeria.html"  class="botoesEvento btn btn-primary" >Galeria</a>  
+                        <button class="botoesEvento btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRelatorios" >Relatórios</button>     
+                        <a href="./admin_editar_evento.html"  class="botoesEvento btn btn-primary" id="${id}" >Editar</a>  
+                    </div>
+             `;
     
         card.innerHTML += eventoCard;
         main.appendChild(card)

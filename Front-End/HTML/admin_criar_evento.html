@@ -51,10 +51,10 @@
             <div class=" container">
                 <div class="row">
                     <div class="col-md-12">
-                        <form  class=" card mb-4 box-shadow" style="height:49rem;">
+                        <form  class="card_config card mb-4 box-shadow">
                             <div class="espacoImg" >
                                 <div>
-                                    <input id="img-input" type="file" accept="image/png, image/jpeg"  name="imagem">
+                                    <input id="img-input" style="width: 100%;" type="text" placeholder="Insira a URL da imagem" required name="imagem">
                                 </div>
                                 <div id="img-container">
                                     <img class="inserirImagem" id="preview" src="">
@@ -98,7 +98,7 @@
                                               
                             </div>
                             <div class="alinhamentoBotao">
-                                <bottom  class="BotaoInscricao btn btn-primary" >Cancelar</bottom>     
+                                <a href="./admin_listagem_eventos.html" class="BotaoInscricao btn btn-primary" >Cancelar</a>     
                                 <bottom id="criar_eventos"  type="submit" class="BotaoInscricao btn btn-primary" >Salvar</bottom>     
                             </div>
                         </form>
@@ -125,11 +125,19 @@
                 </div>
                 <h5 class="modalTituloLogin modal-title">Cadastrar Organizador</h5>
                 <div class="modal-body">
+                    <span style="margin-left: 0.9rem;">Tipo de Cadastro</span>
+
+                    <select id="tipo_pessoa" style="height: 3rem; margin-top: 0.1rem; width: 95%; margin-left: 0.5rem;"
+                        class=" form-select" aria-label="Default select example" required>
+                        <option value="1" >Organizador</option >
+                        <option value="2"disabled >Usuário</option>
+                    </select>
                     <input class="modalInput" id="nome" type="text" placeholder="Nome:" required><br>
-                    <input class="modalInput" id="cpf" type="text" placeholder="CPF:" required><br>
+                    <input class="modalInput" id="cpf" type="text" placeholder="CPF:" maxlength="11"
+                    oninput="mascara(this)" required><br>
                     <input class="modalInput" id="e-mail" type="email" placeholder="E-mail:" required><br>
-                    <input class="modalInput" id="senha" type="password" placeholder="Senha:" required><br>
-                    <input class="modalInput" id="ConfirmaSenha" type="password" placeholder="Confirmar Senha:" required><br>
+                    <input class="modalInput" id="senha" type="password" placeholder="Senha:" onkeyup="forca_senha()"
+                    required><br>
                     </div>  
                     <a class="modalBotaoCadastro btn btn-secondary" ><button class="modalBotaoCadastro" data-bs-dismiss="modal" >Cadastrar</button></a>
                 </div>           
@@ -140,18 +148,6 @@
     <footer>
         <P class="textoFooter" >@Divulgador de Eventos - 2022</P>    
     </footer>
-    <script>
-        function readImage() {
-            if (this.files && this.files[0]) {
-                var file = new FileReader();
-                file.onload = function(e) {
-                    document.getElementById("preview").src = e.target.result;
-                };       
-                file.readAsDataURL(this.files[0]);
-            }
-        }
-        document.getElementById("img-input").addEventListener("change", readImage, false);
-    </script>
     <script src="../JavaScript/admin-cadastrar-eventos.js"></script>
     <script src="../JavaScript/logoff.js"></script>
   </body>

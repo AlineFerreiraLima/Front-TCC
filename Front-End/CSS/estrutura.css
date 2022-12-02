@@ -284,3 +284,21 @@ footer{
 .hide{
     display: none !important;
 }
+
+#msgErro{
+    text-align: center;
+    color: #ff0000;
+    background-color: #ffbbbb;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+}
+
+#msgSucesso{
+    text-align: center;
+    color: black;
+    background-color: rgb(105, 218, 105);
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+}

@@ -10,6 +10,7 @@ function login(){
         email: '',
         senha: '',
         tipo_fk: '',
+        indice: ''
     }
 
 
@@ -50,6 +51,7 @@ function login(){
                     senha: lista_usuarios[i].senha,
                     tipo_fk: lista_usuarios[i].tipo_fk
                 }        
+                localStorage.setItem('indice', i)
             }        
         });
         
@@ -60,6 +62,7 @@ function login(){
                 let token = mathRandom + mathRandom
                 
                 localStorage.setItem('token', token)
+               
             }
             else{
                 window.location.href = "../HTML/admin_listagem_eventos.html";

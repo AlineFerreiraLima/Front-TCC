@@ -67,3 +67,12 @@
         width: 25%;
     }
 }
+.card_config{
+    height: 53rem;
+}
+
+@media (min-width: 320px) and (max-width: 420px) {
+    .card_config{
+        height: 44rem;
+    }
+}

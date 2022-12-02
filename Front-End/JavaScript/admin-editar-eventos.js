@@ -44,7 +44,8 @@ function evento() {
 
          // console.log(data_formatada);
          console.log(responseJSON);
-         Ipreview.src = `../../${responseJSON.file_name}`;
+         Ipreview.src = responseJSON.file_name;
+         Iimagem.value = responseJSON.file_name;
          Iid_evento.value = responseJSON.id;
          Icod_valida.value = responseJSON.codigo_checkin;
          Ititulo.value = responseJSON.nome;

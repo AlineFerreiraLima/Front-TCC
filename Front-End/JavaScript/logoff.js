@@ -4,6 +4,7 @@ if(localStorage.getItem('token') == null){
 
 function logoff(){
     localStorage.removeItem('token')
+    localStorage.removeItem('indice')
     window.location.href = "../HTML/listagem_eventos.html";
                 
 }

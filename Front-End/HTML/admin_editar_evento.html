@@ -29,8 +29,8 @@
                     </li>
                     </ul>
                     <form class="d-flex" role="search">                
-                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#">Eventos</a>
-                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#">Minha Conta</a> 
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" href="./admin_listagem_eventos.html">Eventos</a>
+                        <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" ref="./admin_conta.html">Minha Conta</a> 
                         <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#CadastroOrg">Cadastrar Organizador</a>
                         <a class="navMenu botaoLogin nav-item btn btn-primary" data-bs-toggle="modal" onclick="logoff()">Logoff</a>                 
                     </form>         
@@ -38,8 +38,8 @@
                 <a id="menu" class="menuIcon" href="#" role="button" data-bs-toggle="dropdown" 
                 aria-expanded="false"><i class="menu fa-solid fa-bars"></i></a>                          
                 <ul class="alinhaMenu dropdown-menu">
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#" >Eventos</a></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#" >Minha Conta</a></li>            
+                <li><a class="dropdown-item" data-bs-toggle="modal" href="./admin_listagem_eventos.html">Eventos</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" ref="./admin_conta.html">Minha Conta</a></li>            
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#CadastroOrg" >Cadastrar Organizador</a></li>
                 <li><a class="dropdown-item" data-bs-toggle="modal" onclick="logoff()">Logoff</a></li>
                 </ul>                
@@ -51,10 +51,10 @@
             <div class=" container">
                <div class="row">
                   <div class="col-md-12">
-                     <form class=" card mb-4 box-shadow" style="height:49rem;" >
+                     <form class="card_config card mb-4 box-shadow" >
                         <div class="espacoImg">
                            <div>
-                              <input name="imagem" id="imagem" type="file" accept="image/png, image/jpeg">
+                              <input name="imagem" id="imagem" style="width: 100%;" type="text" placeholder="Insira a URL da imagem" required>
                            </div>
                            <div id="img-container">
                               <img class="inserirImagem" id="preview" src="">
@@ -100,7 +100,7 @@
                               placeholder="Limite de 400 caracteres" maxlength="400" rows="3"></textarea><br>
                         </div>
                         <div class="alinhamentoBotao">
-                           <input value="Cancelar" class="BotaoInscricao btn btn-primary">
+                           <a href="./admin_view_eventos.html"class="BotaoInscricao btn btn-primary">Cancelar</a>
                            <input id="eventos" type="submit" class="BotaoInscricao btn btn-primary">
                         </div>
                      </form>
@@ -127,11 +127,19 @@
                 </div>
                 <h5 class="modalTituloLogin modal-title">Cadastrar Organizador</h5>
                 <div class="modal-body">
+                    <span style="margin-left: 0.9rem;">Tipo de Cadastro</span>
+
+                    <select id="tipo_pessoa" style="height: 3rem; margin-top: 0.1rem; width: 95%; margin-left: 0.5rem;"
+                        class=" form-select" aria-label="Default select example" required>
+                        <option value="1" >Organizador</option >
+                        <option value="2"disabled >Usuário</option>
+                    </select>
                     <input class="modalInput" id="nome" type="text" placeholder="Nome:" required><br>
-                    <input class="modalInput" id="cpf" type="text" placeholder="CPF:" required><br>
+                    <input class="modalInput" id="cpf" type="text" placeholder="CPF:" maxlength="11"
+                    oninput="mascara(this)" required><br>
                     <input class="modalInput" id="e-mail" type="email" placeholder="E-mail:" required><br>
-                    <input class="modalInput" id="senha" type="password" placeholder="Senha:" required><br>
-                    <input class="modalInput" id="ConfirmaSenha" type="password" placeholder="Confirmar Senha:" required><br>
+                    <input class="modalInput" id="senha" type="password" placeholder="Senha:" onkeyup="forca_senha()"
+                    required><br>
                     </div>  
                     <a class="modalBotaoCadastro btn btn-secondary" ><button class="modalBotaoCadastro" data-bs-dismiss="modal" >Cadastrar</button></a>
                 </div>           

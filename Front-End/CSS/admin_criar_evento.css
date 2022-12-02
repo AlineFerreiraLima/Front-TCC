@@ -10,7 +10,7 @@
 }
 
 .espacoImg{
-    height: 18rem !important;
+    height: 22rem !important;
     width: 100% !important;
     background-color: rgb(170, 170, 170);
 }
@@ -156,5 +156,25 @@
         align-items: right !important;    
         text-align: right !important;
         margin-right: 0.01rem;
+    }
+}
+.inserirImagem{
+    max-height: 20rem !important;
+    width: 100% !important;
+}
+@media (min-width: 320px) and (max-width: 420px) {
+    .inserirImagem{
+        max-height: 12rem !important;
+        width: 100% !important;
+    }
+}
+
+.card_config{
+    height: 53rem;
+}
+
+@media (min-width: 320px) and (max-width: 420px) {
+    .card_config{
+        height: 44rem;
     }
 }

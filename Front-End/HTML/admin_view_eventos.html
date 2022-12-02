@@ -49,7 +49,7 @@
         </nav>
     </header>
     <section>      
-        <div class="main titulo text-center">
+        <div class=" main titulo text-center">
             <template>  
               <!-- Aqui é onde será carregado o conteúdo recebido e populado pelo JS    -->
             </template>
@@ -62,10 +62,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <h5 class="modalTituloLogin modal-title">Escolha o tipo de relatório</h5>
-                <a href="./relatorio_inscricoes.html"  class="modalBotaoCadastro btn btn-secondary"><button type="button" 
-                     class="modalBotaoCadastro" data-bs-dismiss="modal">Inscrições</button></a>
-                <a href="./relatorio_checkin.html"  class="modalBotaoCadastro btn btn-secondary"><button type="button"  
-                    class="modalBotaoCadastro" data-bs-dismiss="modal">Check-in</button></a>
+                <a href="./relatorio_inscricoes.html"  class="modalBotaoCadastro btn btn-secondary">Inscrições</a>
+                <a href="./relatorio_checkin.html"  class="modalBotaoCadastro btn btn-secondary">Check-in</a>
             </div>           
         </div>
     </div> 
@@ -77,11 +75,19 @@
             </div>
             <h5 class="modalTituloLogin modal-title">Cadastrar Organizador</h5>
             <div class="modal-body">
+                <span style="margin-left: 0.9rem;">Tipo de Cadastro</span>
+
+                <select id="tipo_pessoa" style="height: 3rem; margin-top: 0.1rem; width: 95%; margin-left: 0.5rem;"
+                    class=" form-select" aria-label="Default select example" required>
+                    <option value="1" >Organizador</option >
+                    <option value="2"disabled >Usuário</option>
+                </select>
                 <input class="modalInput" id="nome" type="text" placeholder="Nome:" required><br>
-                <input class="modalInput" id="cpf" type="text" placeholder="CPF:" required><br>
+                <input class="modalInput" id="cpf" type="text" placeholder="CPF:" maxlength="11"
+                oninput="mascara(this)" required><br>
                 <input class="modalInput" id="e-mail" type="email" placeholder="E-mail:" required><br>
-                <input class="modalInput" id="senha" type="password" placeholder="Senha:" required><br>
-                <input class="modalInput" id="ConfirmaSenha" type="password" placeholder="Confirmar Senha:" required><br>
+                <input class="modalInput" id="senha" type="password" placeholder="Senha:" onkeyup="forca_senha()"
+                required><br>
                 </div>  
                 <a class="modalBotaoCadastro btn btn-secondary" ><button class="modalBotaoCadastro" data-bs-dismiss="modal" >Cadastrar</button></a>
             </div>           
