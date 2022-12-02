@@ -101,3 +101,39 @@ alter table pessoa rename column tipo_fk to  tipo_fk;
 alter table evento drop column data;
 alter table evento add column data date not null;
 */
+
+/*
+	CREATE TABLE inscricao_evento(
+		id INT PRIMARY KEY AUTO_INCREMENT,
+        nome VARCHAR(255) NOT NULL,
+        cpf VARCHAR(255) NOT NULL,
+        UNIQUE(cpf),
+        email VARCHAR(255) NOT NULL,
+        UNIQUE(email),        
+        curso_fk INT,
+        FOREIGN KEY (curso_fk) REFERENCES curso(id)
+    );
+*/
+
+/*
+	CREATE TABLE presenca_evento(
+		id INT PRIMARY KEY AUTO_INCREMENT,
+        nome VARCHAR(255) NOT NULL,
+        cpf VARCHAR(255) NOT NULL,
+        UNIQUE(cpf),
+        email VARCHAR(255) NOT NULL,
+        UNIQUE(email),        
+        curso_fk INT,
+        FOREIGN KEY (curso_fk) REFERENCES curso(id),
+        codigo_validacao VARCHAR(255) NOT NULL
+    );
+*/
+
+/*
+	CREATE TABLE galeria_evento(
+		id INT PRIMARY KEY AUTO_INCREMENT,
+        imagem VARCHAR(255) NOT NULL,
+        evento_fk INT,
+        FOREIGN KEY (evento_fk) REFERENCES evento(id)
+    );
+*/
