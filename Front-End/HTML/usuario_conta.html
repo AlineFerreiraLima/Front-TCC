@@ -59,7 +59,7 @@
                                         
                             </form>
                             <div class="alinhamentoBotao">
-                                <bottom  class="Botao btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar" >Editar</bottom>        
+                                <bottom  id="chama_editar" class="Botao btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar" >Editar</bottom>        
                                 <bottom  class="Botao btn btn-primary" data-bs-toggle="modal" data-bs-target="#altSenha" >Alterar Senha</bottom>  
                             </div>                            
                         </div>
@@ -70,25 +70,25 @@
         <div id="editar" class=" modal"> <!--Modal para editar dados do usuario-->
             <div class="alturaModal modal-dialog" >
                 <div class="modal-content">
-                <div class="modal-header">                
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <h5 class="modalTituloLogin modal-title">Editar Dados</h5>
-                <div>
-                    <form class="card-body">
-                        <label  style="margin-left: 1.5rem;" class="labelInput" for="nome">Nome : </label>
-                        <input class="camposModal" id="nome"  type="text" required><br>     
-                        <label style="margin-left: 1.5rem;" class="labelInput" for="cpf">CPF : </label>
-                        <input class="camposModal" id="cpf"  type="text" readonly="true"><br>                           
-                        <label style="margin-left: 1.5rem;" class="labelInput" for="email">E-mail : </label>
-                        <input class="camposModal" id="email"  type="text" required><br>
-                               
-                    </form>
-                    <div class="alinhamentoBotao">
-                        <bottom  class="BotaoModal btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar" >Cancelar</bottom>        
-                        <bottom  class="BotaoModal btn btn-primary" >Salvar</bottom>  
+                    <div class="modal-header">                
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                </div>  
+                    <h5 class="modalTituloLogin modal-title">Editar Dados</h5>
+                    <div>
+                        <form class="card-body">
+                            <label  style="margin-left: 1.5rem;" class="labelInput" for="nome_editar">Nome : </label>
+                            <input class="camposModal" id="nome_editar"  type="text" required><br>     
+                            <label style="margin-left: 1.5rem;" class="labelInput" for="cpf_editar">CPF : </label>
+                            <input class="camposModal" id="cpf_editar"  type="text" readonly="true"><br>                           
+                            <label style="margin-left: 1.5rem;" class="labelInput" for="email_editar">E-mail : </label>
+                            <input class="camposModal" id="email_editar"  type="text" required><br>
+                                
+                        </form>
+                        <div class="alinhamentoBotao">
+                            <a href="./admin_conta.html"   class="BotaoModal btn btn-primary" data-bs-toggle="modal" >Cancelar</a>        
+                            <bottom id="editar_conta" class="BotaoModal btn btn-primary" >Salvar</bottom>  
+                        </div>
+                    </div>  
                 </div>           
             </div>
         </div>
@@ -101,16 +101,16 @@
                 <h5 class="modalTituloLogin modal-title">Alterar Senha: </h5>
                 <div>
                     <form class="card-body">
-                        <label  style="margin-left: 1.5rem;" class="labelInput" for="senhaA">Senha Atual : </label>
-                        <input class="alterarSenha" id="senhaA"  type="password" required><br>  
-                        <label  style="margin-left: 1.5rem;" class="labelInput" for="newSenha">Nova Senha : </label>
-                        <input class="alterarSenha" id="newSenha"  type="password" required><br>  
-                        <label  style="margin-left: 1.5rem;" class="labelInput" for="confSenha">Confirmar Senha : </label>
-                        <input class="alterarSenha" id="confSenha"  type="password" required><br>  
+                        <div id="msgErro"></div>
+                        <div id="msgSucesso"></div>
+                        <label  style="margin-left: 1.5rem;" class="labelInput" for="senha_atual">Senha Atual : </label>
+                        <input class="alterarSenha" id="senha_atual"  type="password" required><br>  
+                        <label  style="margin-left: 1.5rem;" class="labelInput" for="nova_senha">Nova Senha : </label>
+                        <input class="alterarSenha" id="nova_senha"  type="password" required><br> 
                     </form>
                     <div class="alinhamentoBotao">
-                        <bottom  class="BotaoModal btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar" >Cancelar</bottom>        
-                        <bottom  class="BotaoModal btn btn-primary" >Salvar</bottom>  
+                        <a href="./usuario_conta.html"  class="BotaoModal btn btn-primary" data-bs-toggle="modal" >Cancelar</a>        
+                        <bottom id="alterar_senha"  class="BotaoModal btn btn-primary" >Salvar</bottom>  
                     </div>
                 </div>  
                 </div>           

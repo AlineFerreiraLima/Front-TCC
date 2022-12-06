@@ -1,6 +1,6 @@
 
 //Acessando os campos input, pegando os valores referente aos id e salvando em variaveis
-const formularioCadastro = document.getElementById("criar_eventos");
+const formulario_cadastro_evento = document.getElementById("criar_eventos");
 const Icapa_evento = document.getElementById("img-input");
 const Inome_evento = document.getElementById("nome_evento");
 const Icodigo_validacao = document.getElementById("codValida");
@@ -14,10 +14,21 @@ const Ilocal = document.getElementById("local");
 const Idescricao = document.getElementById("descricao");
 const Icapacidade_maxima = document.getElementById("capacidade_maxima");
 
+const Isenha = document.getElementById("senha");
+const IconfirmaSenha = document.getElementById("confirmaSenha");
+
+const formulario_cadastrar_organizador = document.getElementById("CadastroOrg");
+const formularioEsqueceuSenha = document.getElementById("EsqueceuSenha");
+const Inome = document.getElementById("nome");
+const Icpf = document.getElementById("cpf");
+const Iemail = document.getElementById("email");
+const Itipo_pessoa = document.getElementById("tipo_pessoa");
+const Iemail_recuperar = document.getElementById("email_recuperar");
 
 
 
-//Função para cadastrar um novo usuario na base de dados
+
+//Função para cadastrar um novo EVENTO na base de dados
 function cadastrar() {
     fetch("http://localhost:8081/eventos/criar",
         {
@@ -45,7 +56,7 @@ function cadastrar() {
         .catch(function (res) { console.log(res) })
 
 };
-
+//Função para limpar os campos de cadastro de evento.
 function limparCadastro() {
     Icodigo_validacao.value = "";
     Inome_evento.value = "";
@@ -61,8 +72,8 @@ function limparCadastro() {
     Idata.value = "";
 }
 
-
-formularioCadastro.addEventListener('click', function (event) {
+//Função de evento para chamar a execução das funções Cadastrar e limparCadastro
+formulario_cadastro_evento.addEventListener('click', function (event) {
     console.log("entrou")
     event.preventDefault();
     cadastrar();
@@ -70,7 +81,7 @@ formularioCadastro.addEventListener('click', function (event) {
 });
 
 
-//Função para adicinar mascara para o campo CPF
+//Função destinada ao cadastro de usuarios, utilizada para adicinar mascara para o campo CPF
 function mascara(i) {
 
     var v = i.value;
@@ -84,111 +95,9 @@ function mascara(i) {
     if (v.length == 3 || v.length == 7) i.value += ".";
     if (v.length == 11) i.value += "-";
 }
-//Acessando os campos input, pegando os valores referente aos id e salvando em variaveis
-const Isenha = document.getElementById("senha");
-const IconfirmaSenha = document.getElementById("confirmaSenha");
-
-// Função para validar se com campos de senha e confirma senha são iguais
-function validacao(item) {
-    item.setCustomValidity('');
-    item.checkValidity();
-
-    if (item == IconfirmaSenha) {
-        if (item.value === Isenha.value) {
-            item.setCustomValidity('')
-        } else {
-            item.setCustomValidity("As senhas digitadas não são iguais");
-        };
-
-    }
-}
-
-Isenha.addEventListener('input', function () { validacao(senha) });
-
-//Função para validar a força da senha digitada pelo usuario
-function forca_senha() {
-    var senha_real_time = document.getElementById('senha').value
-    var forca = 0;
-    if ((senha_real_time.length >= 4) && (senha_real_time.length <= 7)) {
-        forca = forca + 10;
-    } else if (senha_real_time.length > 7) {
-        forca = forca + 25;
-    }
-
-    if ((senha_real_time.length >= 5) && (senha_real_time.match(/[a-z]+/))) {
-        forca = forca + 10;
-    }
-
-    if ((senha_real_time.length >= 6) && (senha_real_time.match(/[A-Z]+/))) {
-        forca = forca + 20;
-    }
-    if ((senha_real_time.length >= 7) && (senha_real_time.match(/[@#$%&;*]+/))) {
-        forca = forca + 25;
-    }
-
-    mostrar_forca(forca);
-}
-function mostrar_forca(forca) {
-    if (forca < 30) {
-        document.getElementById("erro_senha_forca").innerHTML = "<span style='color: #FF0000'>Fraca</span>";
-    } else if ((forca >= 30) && (forca < 50)) {
-        document.getElementById("erro_senha_forca").innerHTML = "<span style='color: #FFD700'>Média</span>";
-    } else if ((forca >= 50) && (forca < 70)) {
-        document.getElementById("erro_senha_forca").innerHTML = "<span style='color: #7FFF00'>Forte</span>";
-    }
-}
-
-//Acessando os campos input, pegando os valores referente aos id e salvando em variaveis
-const formulario_cadastrar_organizador = document.getElementById("CadastroOrg");
-const formularioEsqueceuSenha = document.getElementById("EsqueceuSenha");
-const Inome = document.getElementById("nome");
-const Icpf = document.getElementById("cpf");
-const Iemail = document.getElementById("email");
-const Itipo_pessoa = document.getElementById("tipo_pessoa");
-const Iemail_recuperar = document.getElementById("email_recuperar");
 
 
-
-//Função para cadastrar um novo usuario na base de dados
-function cadastrar_organizador() {
-    fetch("http://localhost:8081/pessoas/criar",
-        {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify({
-                tipo_fk: Itipo_pessoa.value,
-                nome: Inome.value,
-                cpf: Icpf.value,
-                email: Iemail.value,
-                senha: Isenha.value
-            })
-        })
-        .then(function (res) { console.log(res) })
-        .catch(function (res) { console.log(res) })
-
-};
-
-function limpar_cadastro_organizador() {
-    Itipo_pessoa.value = "";
-    Inome.value = "";
-    Icpf.value = "";
-    Iemail.value = "";
-    Isenha.value = "";
-    IconfirmaSenha.value = "";
-}
-
-
-formularioCadastro.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    cadastrar_organizador();
-    limpar_cadastro_organizador();
-});
-
-
+//Função para fazer a visualização da imagem que será cadastrada no evento
 function readImage() {
     if (this.files && this.files[0]) {
         var file = new FileReader();

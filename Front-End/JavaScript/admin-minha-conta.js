@@ -1,3 +1,6 @@
+src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"
+src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"
+
 //Acessando os campos input, pegando os valores referente aos id e salvando em variaveis
 const formularioMinhaConta = document.getElementById("minhaConta");
 const Inome = document.getElementById("nome");
@@ -16,6 +19,17 @@ const IsenhaAtual = document.getElementById("senha_atual");
 const InovaSenha = document.getElementById("nova_senha");
 const IconfirmarNsenha = document.getElementById("confirma_senha");
 
+// const formularioCadastro = document.getElementById("Cadastrar_organizador");
+// const Itipo_pessoa = document.getElementById("tipo_pessoa");
+// const Inome_cadastrar = document.getElementById("nome_cadastro");
+// const Icpf_cadastrar = document.getElementById("cpf_cadastro");
+// const Iemail_cadastrar = document.getElementById("email_cadastro");
+// const Isenha_cadastrar = document.getElementById("senha_cadastro");
+// const Iemail_recuperar = document.getElementById("email_recuperar");
+
+const formulario_editar_conta = document.getElementById("editar_conta");
+const formulario_chama_editar = document.getElementById("chama_editar");
+
 
 // const logoffBtn = document.getElementById("logoff-btn");
 // const logoffBtnMobile = document.getElementById("logoff-btn-mobile");
@@ -31,108 +45,31 @@ function conta() {
         },
         method: "GET"
      })
-     .then((response) => {
-        return response.json()
-     })
+     .then((response) => { return response.json() })
      .then((responseJSON) => {
         let cpf = responseJSON[indice].cpf;
 
-   fetch(`http://localhost:8081/pessoas/buscar/${cpf}`,
-      {
-         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-         },
-         method: "GET"
-      })
-      .then((response) => {
-         return response.json()
-      })
-      .then((responseJSON) => {
-         Inome.value = responseJSON.nome;
-         Icpf.value = responseJSON.cpf;
-         Iemail.value = responseJSON.email;
-      })
+        fetch(`http://localhost:8081/pessoas/buscar/${cpf}`,
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: "GET"
+            })
+            .then((response) => { return response.json() })
+            .then((responseJSON) => {
+
+                Inome.value = responseJSON.nome;
+                Icpf.value = responseJSON.cpf;
+                Iemail.value = responseJSON.email;
+            })
     })
 };
 conta();
 
-
-//Função para adicinar mascara para o campo CPF
-function mascara(i) {
-
-    var v = i.value;
-
-    if (isNaN(v[v.length - 1])) { // impede entrar outro caractere que não seja número
-        i.value = v.substring(0, v.length - 1);
-        return;
-    }
-
-    i.setAttribute("maxlength", "14");
-    if (v.length == 3 || v.length == 7) i.value += ".";
-    if (v.length == 11) i.value += "-";
-}
-
-
-//Acessando os campos input, pegando os valores referente aos id e salvando em variaveis
-const formularioCadastro = document.getElementById("Cadastrar_organizador");
-const formularioLogin = document.getElementById("loginUser");
-const formularioEsqueceuSenha = document.getElementById("EsqueceuSenha");
-const Itipo_pessoa = document.getElementById("tipo_pessoa");
-const Inome_cadastrar = document.getElementById("nome_cadastro");
-const Icpf_cadastrar = document.getElementById("cpf_cadastro");
-const Iemail_cadastrar = document.getElementById("email_cadastro");
-const Isenha_cadastrar = document.getElementById("senha_cadastro");
-const Iemail_recuperar = document.getElementById("email_recuperar");
-
-const formulario_editar_conta = document.getElementById("editar_conta");
-const formulario_chama_editar = document.getElementById("chama_editar");
-
 let senha_cad;
 let tipo_fk_cad;
-
-
-
-//Função para cadastrar um novo usuario na base de dados
-function cadastrar() {
-    fetch("http://localhost:8081/pessoas/criar",
-        {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify({
-                tipo_fk: Itipo_pessoa.value,
-                nome: Inome_cadastrar.value,
-                cpf: Icpf_cadastrar.value,
-                email: Iemail_cadastrar.value,
-                senha: Isenha_cadastrar.value
-            })
-        })
-        .then(function (res) { console.log(res) })
-        .catch(function (res) { console.log(res) })
-
-};
-
-function limparCadastro() {
-    Itipo_pessoa.value = "";
-    Inome.value = "";
-    Icpf.value = "";
-    Iemail.value = "";
-    Isenha.value = "";
-}
-
-
-formularioCadastro.addEventListener('click', function (event) {
-    event.preventDefault();
-
-    cadastrar();
-    limparCadastro();
-});
-
-
-
 function visualizar_conta() {
     fetch("http://localhost:8081/pessoas/lista",
     {
@@ -148,24 +85,24 @@ function visualizar_conta() {
      .then((responseJSON) => {
         let cpf = responseJSON[indice].cpf;
 
-   fetch(`http://localhost:8081/pessoas/buscar/${cpf}`,
-      {
-         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-         },
-         method: "GET"
-      })
-      .then((response) => {
-         return response.json()
-      })
-      .then((responseJSON) => {
-         InomeConta.value = responseJSON.nome;
-         IcpfConta.value = responseJSON.cpf;
-         IemailConta.value = responseJSON.email;
-         senha_cad = responseJSON.senha;
-         tipo_fk_cad = responseJSON.tipo_fk;
-      })
+        fetch(`http://localhost:8081/pessoas/buscar/${cpf}`,
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: "GET"
+            })
+            .then((response) => {
+                return response.json()
+            })
+            .then((responseJSON) => {
+                InomeConta.value = responseJSON.nome;
+                IcpfConta.value = responseJSON.cpf;
+                IemailConta.value = responseJSON.email;
+                senha_cad = responseJSON.senha;
+                tipo_fk_cad = responseJSON.tipo_fk;
+            })
     })
 };
 
@@ -187,7 +124,7 @@ function editar_conta(){
         })
         .then(function (res) { console.log(res) })
         .catch(function (res) { console.log(res) })
-}
+};
 
 formulario_chama_editar.addEventListener('click', function (event) {
     event.preventDefault();
@@ -222,9 +159,17 @@ function alterar_senha(){
         let cpf_user =  responseJSON[indice].cpf;
         let tipo_fk_user =  responseJSON[indice].tipo_fk;
 
-        console.log(senha_user)
-        if(senha_user == IsenhaAtual.value){
+        //Cria o hash na senha atual (primeiro campo)
+        let senha_atual_hash = CryptoJS.MD5(IsenhaAtual.value)
+        senha_atual_hash = senha_atual_hash.toString(CryptoJS.enc.Hex)
+
+        if(senha_user == senha_atual_hash){
             console.log("entrou no if")
+
+            //Cria o hash na nova senha (segundo campo)
+            let nova_senha_hash = CryptoJS.MD5(InovaSenha.value)
+            nova_senha_hash = nova_senha_hash.toString(CryptoJS.enc.Hex)
+            
             fetch("http://localhost:8081/pessoas/editar",
             {
                 headers: {
@@ -236,7 +181,7 @@ function alterar_senha(){
                     nome: nome_user,
                     email: email_user,
                     cpf: cpf_user,
-                    senha: InovaSenha.value,
+                    senha: nova_senha_hash,
                     tipo_fk: tipo_fk_user
                 })
             })

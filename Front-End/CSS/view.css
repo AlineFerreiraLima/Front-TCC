@@ -30,7 +30,7 @@
 @media (max-width: 660px) {
     .card{
         width: 90%;
-        height: 90vh;
+        height: 120vh;
         background-color: var(--card-bg);
         box-shadow: 0 0 10px 2px #aaa;
         transition: 0.8s ease-out;

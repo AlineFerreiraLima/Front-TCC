@@ -4,6 +4,9 @@ function login(){
     let Iemail = document.getElementById("email_login");
     let Isenha = document.getElementById("senha_login");
     let msgErro = document.getElementById("msgErro");
+
+    let senha_hash = CryptoJS.MD5(Isenha.value)
+    senha_hash = senha_hash.toString(CryptoJS.enc.Hex)
    
     let lista_usuarios = [];
     let userValida = {
@@ -44,7 +47,7 @@ function login(){
         console.log(lista_usuarios)
         lista_usuarios.forEach((element, i) => {
             
-            if(Iemail.value == lista_usuarios[i].email && Isenha.value == lista_usuarios[i].senha){
+            if(Iemail.value == lista_usuarios[i].email && senha_hash == lista_usuarios[i].senha){
             
                 userValida = {
                     email: lista_usuarios[i].email,
@@ -52,10 +55,12 @@ function login(){
                     tipo_fk: lista_usuarios[i].tipo_fk
                 }        
                 localStorage.setItem('indice', i)
+                console.log(lista_usuarios[i].senha)
             }        
         });
-        
-        if(Iemail.value == userValida.email && Isenha.value == userValida.senha){
+        console.log(senha_hash)
+        if(Iemail.value == userValida.email && senha_hash == userValida.senha){
+            console.log("entrou")
             if(userValida.tipo_fk != 1){
                 window.location.href = "../HTML/usuario_listagem_eventos.html";
                 let mathRandom = Math.random().toString(16).substr(2)
@@ -76,7 +81,7 @@ function login(){
             Iemail.setAttribute('style', 'border-color: red')
             Isenha.setAttribute('style', 'color: red')
             msgErro.setAttribute('style', 'display: block')
-            msgErro.innerHTML = 'Usuário ou senha incorretos'
+            msgErro.innerHTML = 'Usuário e/ou senha incorreto(s)!'
             Iemail.focus()
 
         }

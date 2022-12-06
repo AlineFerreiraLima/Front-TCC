@@ -7,16 +7,18 @@ const Icurso = document.getElementById("curso");
 const Isenha = document.getElementById("senha");
 const IconfirmaSenha = document.getElementById("confirmaSenha");
 
-const formularioEditarConta = document.getElementById("editar_conta");
-const InomeConta = document.getElementById("nome_conta");
-const IcpfConta = document.getElementById("cpf_conta");
-const IemailConta = document.getElementById("email_conta");
-const IcursoConta = document.getElementById("curso_conta");
-
-const formularioAlterarSenha = document.getElementById("alterar_senha");
+const formulario_alterar_senha = document.getElementById("alterar_senha");
 const IsenhaAtual = document.getElementById("senha_atual");
 const InovaSenha = document.getElementById("nova_senha");
 const IconfirmarSenha = document.getElementById("confirma_senha");
+
+const formulario_editar_conta = document.getElementById("editar_conta");
+const formulario_chama_editar = document.getElementById("chama_editar");
+
+const formularioEditarConta = document.getElementById("editar");
+const InomeConta = document.getElementById("nome_editar");
+const IcpfConta = document.getElementById("cpf_editar");
+const IemailConta = document.getElementById("email_editar");
 
 
 // const logoffBtn = document.getElementById("logoff-btn");
@@ -44,3 +46,144 @@ function conta() {
       })
 };
 conta();
+
+
+let senha_cad;
+let tipo_fk_cad;
+function visualizar_conta() {
+    fetch("http://localhost:8081/pessoas/lista",
+    {
+        headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json'
+        },
+        method: "GET"
+     })
+     .then((response) => {
+        return response.json()
+     })
+     .then((responseJSON) => {
+        let cpf = responseJSON[indice].cpf;
+
+        fetch(`http://localhost:8081/pessoas/buscar/${cpf}`,
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: "GET"
+            })
+            .then((response) => {
+                return response.json()
+            })
+            .then((responseJSON) => {
+                InomeConta.value = responseJSON.nome;
+                IcpfConta.value = responseJSON.cpf;
+                IemailConta.value = responseJSON.email;
+                senha_cad = responseJSON.senha;
+                tipo_fk_cad = responseJSON.tipo_fk;
+            })
+    })
+};
+
+function editar_conta(){
+    fetch("http://localhost:8081/pessoas/editar",
+        {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "PUT",
+            body: JSON.stringify({
+                nome: InomeConta.value,
+                cpf: IcpfConta.value,
+                email: IemailConta.value,
+                senha: senha_cad,
+                tipo_fk: tipo_fk_cad
+            })
+        })
+        .then(function (res) { console.log(res) })
+        .catch(function (res) { console.log(res) })
+};
+
+formulario_chama_editar.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    visualizar_conta();
+});
+
+formulario_editar_conta.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    editar_conta();
+});
+
+
+
+function alterar_senha(){
+    fetch("http://localhost:8081/pessoas/lista",
+    {
+        headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json'
+        },
+        method: "GET"
+     })
+     .then((response) => {
+        return response.json()
+     })
+     .then((responseJSON) => {
+        let senha_user = responseJSON[indice].senha;
+        let nome_user =  responseJSON[indice].nome;
+        let email_user =  responseJSON[indice].email;
+        let cpf_user =  responseJSON[indice].cpf;
+        let tipo_fk_user =  responseJSON[indice].tipo_fk;
+
+        //Cria o hash na senha atual (primeiro campo)
+        let senha_atual_hash = CryptoJS.MD5(IsenhaAtual.value)
+        senha_atual_hash = senha_atual_hash.toString(CryptoJS.enc.Hex)
+
+        if(senha_user == senha_atual_hash){
+            console.log("entrou no if")
+
+            //Cria o hash na nova senha (segundo campo)
+            let nova_senha_hash = CryptoJS.MD5(InovaSenha.value)
+            nova_senha_hash = nova_senha_hash.toString(CryptoJS.enc.Hex)
+            
+            fetch("http://localhost:8081/pessoas/editar",
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: "PUT",
+                body: JSON.stringify({
+                    nome: nome_user,
+                    email: email_user,
+                    cpf: cpf_user,
+                    senha: nova_senha_hash,
+                    tipo_fk: tipo_fk_user
+                })
+            })
+            
+            .then(function (res) {                 
+                msgSucesso.setAttribute('style', 'display: block')
+                msgSucesso.innerHTML = 'Senha alterada com sucesso!'
+                console.log(res) 
+            })
+            .catch(function (res) { console.log(res) })
+        }else{
+            IsenhaAtual.setAttribute('style', 'color: red')
+            msgErro.setAttribute('style', 'display: block')
+            msgErro.innerHTML = 'Senha incorreta!'
+            IsenhaAtual.focus()
+        }
+      
+    })
+}
+
+formulario_alterar_senha.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    alterar_senha();
+});

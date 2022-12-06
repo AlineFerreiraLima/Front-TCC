@@ -8,6 +8,8 @@
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">     
     <!--Link Fontawesome-->  
     <script src="https://kit.fontawesome.com/682c6e0990.js" crossorigin="anonymous"></script>
+    
+   
     <!--Links CSS-->
     <link rel="stylesheet" href="../CSS/estrutura.css">
     <link rel="stylesheet" href="../CSS/conta.css">
@@ -73,25 +75,25 @@
         <div id="editar" class=" modal"  ><!--Modal de edição dos dados-->
             <div class="alturaModal modal-dialog" >
                 <div class="modal-content">
-                <div class="modal-header">                
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <h5 class="modalTituloLogin modal-title">Editar Dados</h5>
-                <div>
-                    <form class="card-body">
-                        <label  style="margin-left: 1.5rem;" class="labelInput" for="nome_editar">Nome : </label>
-                        <input class="camposModal" id="nome_editar"  type="text" required><br>     
-                        <label style="margin-left: 1.5rem;" class="labelInput" for="cpf_editar">CPF : </label>
-                        <input class="camposModal" id="cpf_editar"  type="text" readonly="true"><br>                           
-                        <label style="margin-left: 1.5rem;" class="labelInput" for="email_editar">E-mail : </label>
-                        <input class="camposModal" id="email_editar"  type="text" required><br>
-                               
-                    </form>
-                    <div class="alinhamentoBotao">
-                        <a href="./admin_conta.html"   class="BotaoModal btn btn-primary" data-bs-toggle="modal" >Cancelar</a>        
-                        <bottom id="editar_conta" class="BotaoModal btn btn-primary" >Salvar</bottom>  
+                    <div class="modal-header">                
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                </div>  
+                    <h5 class="modalTituloLogin modal-title">Editar Dados</h5>
+                    <div>
+                        <form class="card-body">
+                            <label  style="margin-left: 1.5rem;" class="labelInput" for="nome_editar">Nome : </label>
+                            <input class="camposModal" id="nome_editar"  type="text" required><br>     
+                            <label style="margin-left: 1.5rem;" class="labelInput" for="cpf_editar">CPF : </label>
+                            <input class="camposModal" id="cpf_editar"  type="text" readonly="true"><br>                           
+                            <label style="margin-left: 1.5rem;" class="labelInput" for="email_editar">E-mail : </label>
+                            <input class="camposModal" id="email_editar"  type="text" required><br>
+                                
+                        </form>
+                        <div class="alinhamentoBotao">
+                            <a href="./admin_conta.html"   class="BotaoModal btn btn-primary" data-bs-toggle="modal" >Cancelar</a>        
+                            <bottom id="editar_conta" class="BotaoModal btn btn-primary" >Salvar</bottom>  
+                        </div>
+                    </div>  
                 </div>           
             </div>
         </div>
@@ -120,38 +122,45 @@
             </div>
         </div>
         <div id="CadastroOrg" class=" modal"><!--Modal de cadastro-->
-            <div class="alturaModal modal-dialog" >
+            <form class="alturaModal modal-dialog" >
                 <div class="modal-content">
-                <div class="modal-header">                
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <h5 class="modalTituloLogin modal-title">Cadastrar Organizador</h5>
-                <div class="modal-body">
-                    <span style="margin-left: 0.9rem;">Tipo de Cadastro</span>
+                    <div class="modal-header">                
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <h5 class="modalTituloLogin modal-title">Cadastrar Organizador</h5>
+                    <div class="modal-body">
+                        <span style="margin-left: 0.9rem;">Tipo de Cadastro</span>
 
-                    <select id="tipo_pessoa" style="height: 3rem; margin-top: 0.1rem; width: 95%; margin-left: 0.5rem;"
-                        class=" form-select" aria-label="Default select example" required>
-                        <option value="1" >Organizador</option >
-                        <option value="2"disabled >Usuário</option>
-                    </select>
-                    <input class="modalInput" id="nome_cadastro" type="text" placeholder="Nome:" required><br>
-                    <input class="modalInput" id="cpf_cadastro" type="text" placeholder="CPF:" maxlength="11"
-                    oninput="mascara(this)" required><br>
-                    <input class="modalInput" id="email_cadastro" type="email" placeholder="E-mail:" required><br>
-                    <input class="modalInput" id="senha_cadastro" type="password" placeholder="Senha:" 
-                    required><br>
+                        <select id="tipo_pessoa" style="height: 3rem; margin-top: 0.1rem; width: 95%; margin-left: 0.5rem;"
+                            class=" form-select" aria-label="Default select example" required>
+                            <option value="1" >Organizador</option >
+                            <option value="2"disabled >Usuário</option>
+                        </select>
+                        <input class="modalInput" id="nome_cadastro" type="text" placeholder="Nome:" required><br>
+                        <input class="modalInput" id="cpf_cadastro" type="text" placeholder="CPF:" maxlength="11"
+                        oninput="mascara(this)" required><br>
+                        <input class="modalInput" id="email_cadastro" type="email" placeholder="E-mail:" required><br>
+                        <input class="modalInput" id="senha_cadastro" type="password" placeholder="Senha:" 
+                        required><br>
                     </div>  
-                    <button id="Cadastrar_organizador" type="submit" class="modalBotaoCadastro btn btn-secondary" data-bs-dismiss="modal" >Cadastrar</button>
-                </div>           
-            </div>
+                    <button id="cadastrar_organizador"  type="submit"  class="modalBotaoCadastro btn btn-primary">Cadastrar</button>
+                </div>       
+            </form>
         </div>
     </section>     
     <footer>
         <P class="textoFooter" >@Divulgador de Eventos- 2022</P>
     </footer>
-    <!--Script js do Bootstrap-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>  
+    
     <script src="../JavaScript/logoff.js"></script>  
     <script src="../JavaScript/admin-minha-conta.js"></script>
+    <script src="../JavaScript/cadastrar-organizador.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+<!--Script js do Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>    
+    <script src="https://kit.fontawesome.com/682c6e0990.js" crossorigin="anonymous"></script>    
+    
   </body>
 </html>
